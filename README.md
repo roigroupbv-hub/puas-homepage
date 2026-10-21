@@ -19,11 +19,12 @@ Open daarna http://localhost:8790.
 - `bevestiging.html` + `bevestiging.js`: orderbevestiging, leest de laatst geplaatste bestelling uit de browser
 - `zakelijk.html` + `zakelijk.js`: zakelijke voorwaarden, staffeltabel (uit data.js) en aanvraagformulier (verstuurt nog niets)
 - `contact.html` + `contact.js`: contactgegevens, bedrijfsgegevens (voorbeeldwaarden uit het ontwerp), berichtformulier (verstuurt nog niets) en veelgestelde vragen
+- `service.html` + `service.js`: klantenservice met tabbladen (`#verzenden`, `#onderhoud`, `#vragen`); de footerlinks openen direct het juiste tabblad
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
 - `img/`: logo, patroontegel en foto's (omgezet naar JPG)
 - `design-referentie/`: het originele ontwerp en de handoff-README (niet in git, zie `.gitignore`)
 
-Links naar Zoeken, Account en Service staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
+Links naar Zoeken en Account staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
 
 Na een wijziging aan een css/js-bestand: verhoog `?v=N` in alle html-bestanden, anders laden browsers via de cache een mix van oud en nieuw.

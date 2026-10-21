@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klantenservice · PUAS</title>
+<meta name="description" content="Verzenden, retourneren, onderhoud van batik en veelgestelde vragen.">
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=10">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html">Assortiment</a>
+      <a href="zakelijk.html">Zakelijk</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="contact.html" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="#" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="#" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--tabs">
+      <div class="page-hero__accent">Bantuan</div>
+      <h1>Klantenservice</h1>
+      <div class="service-tabs" role="tablist">
+        <a href="#verzenden" class="service-tab" role="tab" data-tab="verzenden">Verzenden &amp; retourneren</a>
+        <a href="#onderhoud" class="service-tab" role="tab" data-tab="onderhoud">Onderhoud van batik</a>
+        <a href="#vragen" class="service-tab" role="tab" data-tab="vragen">Veelgestelde vragen</a>
+      </div>
+    </section>
+
+    <section class="service">
+      <div>
+        <div class="service-pane" data-pane="verzenden" role="tabpanel">
+          <h2 class="service__title">Verzenden &amp; retourneren</h2>
+          <div class="ship-cards">
+            <div class="ship-card"><div class="contact__label">Nederland &amp; België</div><p>Franco vanaf € 500, anders € 19,50 excl. btw<br>2 – 3 werkdagen · PostNL</p></div>
+            <div class="ship-card"><div class="contact__label">Avondlevering</div><p>€ 9,95 excl. btw<br>Morgen tussen 18.00 en 22.00 · PostNL</p></div>
+            <div class="ship-card"><div class="contact__label">Duitsland</div><p>Franco vanaf € 500, anders € 19,50 excl. btw<br>3 – 5 werkdagen · DHL</p></div>
+            <div class="ship-card"><div class="contact__label">Ophalen</div><p>Gratis · showroom Amsterdam<br>Op afspraak, binnen 1 werkdag klaar</p></div>
+          </div>
+          <h3 class="service__subtitle">Retourneren binnen 30 dagen</h3>
+          <div class="service__text">
+            <p>Ongebruikt en binnen 30 dagen? Meld je retour via je account of mail je ordernummer. Retourlabel € 5,95, terugbetaling binnen 5 werkdagen na ontvangst.</p>
+            <p>Voor winkels: niet-verkochte, onbeschadigde voorraad kun je binnen 90 dagen omruilen voor andere motieven of maten.</p>
+            <p>Een plekje was dat net anders vloeide of een lijn die iets dikker werd, hoort bij handwerk. Een echt gebrek lossen we op.</p>
+          </div>
+        </div>
+
+        <div class="service-pane" data-pane="onderhoud" role="tabpanel" hidden>
+          <h2 class="service__title service__title--tight">Onderhoud van batik</h2>
+          <p class="service__lead">Goed onderhouden gaat batik generaties mee. De kleuren worden zachter, het katoen soepeler.</p>
+          <div class="care-steps">
+            <div class="care-step"><div class="care-step__n">Satu</div><div><b>Wassen op 30°C, binnenstebuiten</b><p>Handwas of fijnwasprogramma, mild wasmiddel zonder bleek. De eerste keer apart.</p></div></div>
+            <div class="care-step"><div class="care-step__n">Dua</div><div><b>Niet in de droger</b><p>In de schaduw laten drogen. Zon bleekt indigo en soga.</p></div></div>
+            <div class="care-step"><div class="care-step__n">Tiga</div><div><b>Strijken aan de achterzijde</b><p>Middelhoog, licht vochtig. Zo blijft de tekening scherp.</p></div></div>
+            <div class="care-step"><div class="care-step__n">Empat</div><div><b>Bewaren in katoen, niet in plastic</b><p>Af en toe anders opvouwen om slijtlijnen te voorkomen.</p></div></div>
+          </div>
+          <div class="care-note"><b>Ata-manden en hout:</b> droog afnemen. Af en toe een druppel kokosolie houdt het riet soepel. Niet in de volle zon of naast de verwarming.</div>
+        </div>
+
+        <div class="service-pane" data-pane="vragen" role="tabpanel" hidden>
+          <h2 class="service__title">Veelgestelde vragen</h2>
+          <div class="faq__list faq__list--service" id="service-faq"></div>
+        </div>
+      </div>
+
+      <aside class="service-aside">
+        <div class="service-aside__dark">
+          <div class="service-aside__title">Liever even bellen?</div>
+          <p>Ma – vr, 9.00 – 17.30. WhatsApp beantwoorden we dezelfde dag.</p>
+          <a href="tel:+31201234568" class="service-aside__phone">+31 20 123 45 68</a>
+          <div class="service-aside__meta"><a href="mailto:hallo@puas.nl">hallo@puas.nl</a> · WhatsApp +31 6 12 34 56 78</div>
+          <a href="contact.html" class="service-aside__link">Contact <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="service-aside__light">
+          <div class="contact__label contact__label--muted">Retour aanmelden</div>
+          <p>Log in en kies je bestelling, of mail je ordernummer naar <a href="mailto:retour@puas.nl">retour@puas.nl</a>.</p>
+          <a href="#" class="text-link text-link--small">Mijn account</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="service.html#verzenden">Verzenden &amp; retourneren</a></div>
+        <div><a href="service.html#onderhoud">Onderhoud van batik</a></div>
+        <div><a href="service.html#vragen">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=10"></script>
+<script src="script.js?v=10"></script>
+<script src="service.js?v=10"></script>
+</body>
+</html>
