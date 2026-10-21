@@ -22,6 +22,7 @@ Open daarna http://localhost:8790.
 - `service.html` + `service.js`: klantenservice met tabbladen (`#verzenden`, `#onderhoud`, `#vragen`); de footerlinks openen direct het juiste tabblad
 - `zoeken.html` + `zoeken.js`: zoeken in de productlijst, zoekterm in de link (`zoeken.html?q=parang`)
 - `account.html` + `account.js`: demo-inlog (elk e-mailadres/wachtwoord; wachtwoord wordt niet bewaard) en zakelijk dashboard; een in deze browser geplaatste bestelling verschijnt bovenaan
+- `bedankkaart.html`: printbare A6-bedankkaart (voor- en achterkant, zonder witrand); `bedankkaart-A6.pdf` is dezelfde kaart als PDF voor de drukker
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
 - `img/`: logo, patroontegel en foto's (omgezet naar JPG)
