@@ -16,7 +16,7 @@
   --placeholder: #8A7F72;
   --outside: #151210;
   --pad: 64px;
-  --tile: url('img/batik-bloem.webp');
+  --tile: url('img/batik-kawung.webp');
   --r-btn: 8px;
   --r-card: 14px;
   /* Tumpal (row of batik triangles) along the top and bottom edge of the batik buttons */
@@ -252,7 +252,7 @@ input::placeholder { color: var(--placeholder); }
 
 /* Footer */
 .footer {
-  background: linear-gradient(rgba(31,26,22,.9), rgba(31,26,22,.9)), var(--tile) center / cover no-repeat, var(--ink);
+  background: linear-gradient(rgba(31,26,22,.55), rgba(31,26,22,.55)), var(--tile) center / cover no-repeat, var(--ink);
   color: var(--cream);
 }
 .footer__top {

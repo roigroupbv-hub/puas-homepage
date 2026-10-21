@@ -16,7 +16,7 @@
     html.is-locked body { background: #1F1A16; }
     .gate {
       position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px;
-      background: linear-gradient(rgba(31,26,22,.9), rgba(31,26,22,.9)), url('img/batik-bloem.webp') center / cover, #1F1A16;
+      background: linear-gradient(rgba(31,26,22,.5), rgba(31,26,22,.5)), url('img/batik-kawung.webp') center / cover no-repeat, #1F1A16;
       font-family: 'Jost', sans-serif; color: #F4EFE6; -webkit-font-smoothing: antialiased;
     }
     .gate__box { width: min(420px, 100%); text-align: center; }
