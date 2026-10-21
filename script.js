@@ -16,6 +16,20 @@ menuButton.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(open));
 });
 
+// Featured product at the bottom of the mobile menu (hidden on desktop via CSS)
+const FEATURED_SLUG = 'kussenhoes-parang';
+const featured = findProduct(FEATURED_SLUG);
+nav.insertAdjacentHTML('beforeend', `<a href="${productUrl(featured)}" class="nav-feature">
+  <span class="nav-feature__img"><img src="${thumbOf(featured)}" alt="" loading="lazy"></span>
+  <span class="nav-feature__text">
+    <span class="nav-feature__eyebrow">Uitgelicht</span>
+    <span class="nav-feature__name">${esc(featured.name)}</span>
+    <span class="nav-feature__detail">${esc(featured.detail)}</span>
+    <span class="nav-feature__price"><b class="js-price" data-price="${featured.slug}"></b> per stuk, excl. btw</span>
+    <span class="nav-feature__cta">Bekijk product <span aria-hidden="true">→</span></span>
+  </span>
+</a>`);
+
 // ---------- VAT preference (shared by all pages) ----------
 window.puasBtw = {
   incl: readStore('puas-btw') === '1',
