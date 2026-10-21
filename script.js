@@ -147,12 +147,21 @@ const UPSELLS = [
   { slug: 'tafelloper-kawung', reason: 'Dezelfde warme bruintinten als de Parang' },
 ];
 
+let lastCount = null;
 function renderCart() {
   const incl = window.puasBtw.incl;
   const btwLabel = incl ? 'incl. btw' : 'excl. btw';
   const t = cart.totals();
   badge.textContent = String(cart.count());
   badge.hidden = cart.count() === 0;
+  // Let the cart icon wiggle when something was added
+  if (lastCount !== null && cart.count() > lastCount) {
+    const icon = badge.closest('.cart');
+    icon.classList.remove('is-bumping');
+    void icon.offsetWidth; // restart the animation
+    icon.classList.add('is-bumping');
+  }
+  lastCount = cart.count();
 
   $id('cart-sub').textContent = `${cart.count()} stuks · ${btwLabel}`;
   $id('cart-lines').innerHTML = cart.lines.length ? cart.lines.map((l, i) => {
