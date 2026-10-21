@@ -25,7 +25,7 @@ Open daarna http://localhost:8790.
 - `bedankkaart.html`: printbare A6-bedankkaart (voor- en achterkant, zonder witrand); `bedankkaart-A6.pdf` is dezelfde kaart als PDF voor de drukker
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
-- `img/`: logo, patroontegel en foto's (omgezet naar JPG)
+- `img/`: logo, patroontegel en foto's als WebP; `-sm`-versies (600 px) voor overzichten, winkelmand en kaarten; `foto-volgt.svg` voor producten zonder eigen foto
 - `design-referentie/`: het originele ontwerp en de handoff-README (niet in git, zie `.gitignore`)
 
 Nog op `#`: Privacy, de categorietegels Kleding/Sieraden/Beelden & Kunst/Tassen, paginanummers op Assortiment en Maattabel. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.

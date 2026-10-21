@@ -26,7 +26,7 @@ function render() {
 
   $s('search-grid').innerHTML = results.map((p) => `
     <article class="product">
-      <a href="${productUrl(p)}" class="product__photo"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy"><span class="product__label">${esc(p.label)}</span></a>
+      <a href="${productUrl(p)}" class="product__photo"><img src="${thumbOf(p)}" alt="${esc(p.name)}" loading="lazy"><span class="product__label">${esc(p.label)}</span></a>
       <div class="product__info">
         <div><a href="${productUrl(p)}" class="product__name">${esc(p.name)}</a><div class="product__detail">${esc(p.detail)}</div></div>
         <div class="product__price">

@@ -32,7 +32,7 @@ $p('eyebrow').textContent = product.eyebrow;
 $p('name').textContent = product.name;
 $p('subline').textContent = product.subline || `${product.label} · ${product.detail}`;
 $p('stock-usp').textContent = `Voorraad: ${product.stock * MOQ} stuks · levertijd 2–3 werkdagen`;
-$p('sticky-img').src = product.img;
+$p('sticky-img').src = thumbOf(product);
 $p('sticky-name').textContent = product.name;
 
 const motif = MOTIFS[product.motief];
@@ -48,7 +48,7 @@ if (motif) {
 
 $p('related').innerHTML = PRODUCTS.filter((p) => p.slug !== product.slug).slice(0, 4).map((p) => `
   <article class="product">
-    <a href="${productUrl(p)}" class="product__photo"><img src="${p.img}" alt="${esc(p.name)}" loading="lazy"><span class="product__label">${esc(p.label)}</span></a>
+    <a href="${productUrl(p)}" class="product__photo"><img src="${thumbOf(p)}" alt="${esc(p.name)}" loading="lazy"><span class="product__label">${esc(p.label)}</span></a>
     <div class="product__info">
       <div><a href="${productUrl(p)}" class="product__name">${esc(p.name)}</a><div class="product__detail">${esc(p.detail)}</div></div>
       <div class="product__price"><div class="price${p.cmp ? ' price--sale' : ''} js-related-price" data-ex="${p.ex}"></div></div>

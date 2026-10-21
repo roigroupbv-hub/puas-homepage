@@ -101,7 +101,7 @@ function render() {
     return `<article class="card">
       <a href="${productUrl(p)}" class="card__link">
         <div class="card__photo">
-          <img src="${p.img}" alt="${esc(p.name)}" loading="lazy">
+          <img src="${thumbOf(p)}" alt="${esc(p.name)}" loading="lazy">
           <span class="card__label">${esc(p.label)}</span>
           ${p.cmp ? `<span class="card__discount">${discount}</span>` : ''}
           ${p.stock <= 5 ? `<span class="card__stock">Nog ${p.stock} dozen</span>` : ''}

@@ -107,7 +107,7 @@ document.body.insertAdjacentHTML('beforeend', `
   <div class="toast" id="toast" role="status">
     <div class="toast__check">✓</div>
     <div class="toast__body">
-      <div class="toast__title">Terima kasih! <span>— dank je wel</span></div>
+      <div class="toast__title">Terima kasih! <span>Dank je wel</span></div>
       <div class="toast__text" id="toast-text"></div>
       <div class="toast__actions"><button type="button" class="toast__primary" data-cart-open>Bekijk bestelling</button><button type="button" class="link-btn link-btn--dark" data-toast-close>Verder winkelen</button></div>
     </div>
@@ -160,7 +160,7 @@ function renderCart() {
     const ti = tierIndex(l.qty);
     const unit = withVat(unitEx(p, l.qty), incl);
     return `<div class="line">
-      <a href="${productUrl(p)}" class="thumb"><img src="${p.img}" alt=""></a>
+      <a href="${productUrl(p)}" class="thumb"><img src="${thumbOf(p)}" alt=""></a>
       <div class="line__main">
         <a href="${productUrl(p)}" class="line__name">${esc(p.name)}</a>
         <div class="line__meta">${esc(l.variant || p.detail)}</div>
@@ -177,7 +177,7 @@ function renderCart() {
   const gift = t.subEx >= GIFT_EX;
   const giftEl = $id('cart-gift');
   giftEl.classList.toggle('is-unlocked', gift);
-  giftEl.innerHTML = `<div class="gift__img"><img src="img/cat-sieraden.jpg" alt=""></div>
+  giftEl.innerHTML = `<div class="gift__img"><img src="img/cat-sieraden-sm.webp" alt=""></div>
     <div class="gift__text"><div>${gift ? 'Gefeliciteerd, je armbandje komt mee' : 'Nog ' + fmt(GIFT_EX - t.subEx) + ' tot een gratis armbandje'}</div>
     <span>${gift ? 'Handgeregen kralenarmband Manik, als dank voor je bestelling.' : 'Bij een bestelling vanaf € 100 excl. btw leggen we een handgeregen kralenarmband Manik voor je in de doos.'}</span></div>
     ${gift ? '<span class="gift__badge">Cadeau</span>' : ''}`;
@@ -186,7 +186,7 @@ function renderCart() {
   $id('cart-upsells').innerHTML = ups.length ? `<div class="eyebrow-dash">Vaak samen besteld</div>` + ups.map((u) => {
     const p = findProduct(u.slug);
     return `<div class="upsell">
-      <div class="thumb thumb--sm"><img src="${p.img}" alt=""></div>
+      <div class="thumb thumb--sm"><img src="${thumbOf(p)}" alt=""></div>
       <div class="upsell__text"><div class="upsell__name">${esc(p.name)}</div><div class="upsell__reason">${esc(u.reason)}</div>
       <div class="upsell__price"><b>${fmt(withVat(p.ex, incl))}</b> / st. · doos van ${MOQ}</div></div>
       <button type="button" class="btn-small" data-upsell="${p.slug}">+ ${MOQ}</button>
@@ -229,7 +229,7 @@ window.puasAdd = (slug, qty, variant = '') => {
   cart.add(slug, qty, variant);
   hideToast('regret');
   $id('toast-text').textContent = `${qty} × ${p.name}${variant ? ' (' + variant + ')' : ''} staat in je bestelling.`;
-  $id('toast-img').src = p.img;
+  $id('toast-img').src = thumbOf(p);
   showToast('toast', 4500);
 };
 
@@ -255,7 +255,7 @@ document.addEventListener('click', (e) => {
     const line = cart.lines[i];
     const p = findProduct(line.slug);
     pendingRemove = i;
-    $id('confirm-img').src = p.img;
+    $id('confirm-img').src = thumbOf(p);
     $id('confirm-text').innerHTML = `Je verwijdert <strong>${esc(p.name)}</strong> (${line.qty} st.) uit je bestelling. ` +
       (tierIndex(line.qty) > 0 ? 'Let op: hiermee vervalt je staffelkorting op dit artikel.' : 'Je kunt het daarna nog even terugzetten.');
     setConfirmOpen(true);

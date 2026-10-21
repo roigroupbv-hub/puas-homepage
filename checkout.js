@@ -54,7 +54,7 @@ function render() {
     const unit = unitEx(p, l.qty);
     const ti = tierIndex(l.qty);
     return `<div class="co-line">
-      <a href="${productUrl(p)}" class="co-line__img"><img src="${p.img}" alt=""></a>
+      <a href="${productUrl(p)}" class="co-line__img"><img src="${thumbOf(p)}" alt=""></a>
       <div>
         <div class="co-line__label">${esc(p.label)}</div>
         <a href="${productUrl(p)}" class="co-line__name">${esc(p.name)}</a>
@@ -73,7 +73,7 @@ function render() {
   $c('co-upsells').innerHTML = CO_UPSELLS.filter((s) => !lines.some((l) => l.slug === s)).slice(0, 3).map((s) => {
     const p = findProduct(s);
     return `<div class="co-upsell">
-      <a href="${productUrl(p)}" class="co-upsell__img"><img src="${p.img}" alt=""></a>
+      <a href="${productUrl(p)}" class="co-upsell__img"><img src="${thumbOf(p)}" alt=""></a>
       <div><div class="co-upsell__name">${esc(p.name)}</div><div class="co-upsell__price">${fmt(p.ex)} <span>p/st · doos van ${MOQ}</span></div>
       <button type="button" class="btn-pattern btn-pattern--xs" data-co-add="${p.slug}">Toevoegen</button></div>
     </div>`;

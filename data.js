@@ -11,7 +11,7 @@ const MOQ = 6;
 
 const PRODUCTS = [
   {
-    slug: 'kussenhoes-parang', img: 'img/p-kussenhoes-parang.jpg', name: 'Kussenhoes Parang', detail: 'Katoen, 50 × 50 cm',
+    slug: 'kussenhoes-parang', img: 'img/p-kussenhoes-parang.webp', name: 'Kussenhoes Parang', detail: 'Katoen, 50 × 50 cm',
     ex: 29.5, cmp: 35.5, tiersEx: [29.5, 27.5, 25.5, 23.5], rrp: 59, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen',
     kleur: 'Sogan bruin', stock: 40, nieuw: true, eyebrow: 'Woonaccessoires · Textiel',
     subline: 'Handgetekende batik tulis · Katoen · 50 × 50 cm',
@@ -20,10 +20,10 @@ const PRODUCTS = [
     description: 'Kussenhoes van dichtgeweven katoen primissima met handgetekend parang-motief in sogan-bruin en gebroken wit. Verborgen rits aan de onderzijde, dubbel gestikte naden. Achterzijde in effen linnenlook.',
     care: '100% katoen. Wassen op 30°C op de hand of in een waszak, binnenstebuiten, met kleurvriendelijk wasmiddel. Niet in de droger; strijken aan de achterzijde. Natuurlijke wasresten trekken na de eerste wasbeurt weg.',
   },
-  { slug: 'tafelloper-kawung', img: 'img/p-tafelloper-kawung.jpg', name: 'Tafelloper Kawung', detail: 'Katoen, 40 × 180 cm', ex: 41.5, rrp: 69, label: 'Batik cap', sub: 'tafel', motief: 'Kawung', mat: 'Katoen', kleur: 'Sogan bruin', stock: 18, eyebrow: 'Woonaccessoires · Tafeltextiel' },
-  { slug: 'ata-mand-met-deksel', img: 'img/p-ata-mand.jpg', name: 'Ata-mand met deksel', detail: 'Ata-riet, ø 28 cm', ex: 52, cmp: 65, rrp: 89, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 3, eyebrow: 'Woonaccessoires · Manden' },
-  { slug: 'wierook-cendana', img: 'img/p-wierook-cendana.jpg', name: 'Wierook Cendana', detail: 'Sandelhout, 40 stokjes', ex: 7.25, rrp: 14.5, label: 'Handgerold', sub: 'geur', motief: 'Effen', mat: 'Sandelhout', kleur: 'Naturel', stock: 60, nieuw: true, eyebrow: 'Woonaccessoires · Geur' },
-  { slug: 'vaas-sekar-jagad', img: 'img/cat-woonaccessoires.jpg', name: 'Vaas Sekar Jagad', detail: 'Keramiek, h 32 cm', ex: 78, rrp: 129, label: 'Handbeschilderd', sub: 'keramiek', motief: 'Sekar Jagad', mat: 'Keramiek', kleur: 'Zwart', stock: 9, eyebrow: 'Woonaccessoires · Keramiek' },
+  { slug: 'tafelloper-kawung', img: 'img/p-tafelloper-kawung.webp', name: 'Tafelloper Kawung', detail: 'Katoen, 40 × 180 cm', ex: 41.5, rrp: 69, label: 'Batik cap', sub: 'tafel', motief: 'Kawung', mat: 'Katoen', kleur: 'Sogan bruin', stock: 18, eyebrow: 'Woonaccessoires · Tafeltextiel' },
+  { slug: 'ata-mand-met-deksel', img: 'img/p-ata-mand.webp', name: 'Ata-mand met deksel', detail: 'Ata-riet, ø 28 cm', ex: 52, cmp: 65, rrp: 89, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 3, eyebrow: 'Woonaccessoires · Manden' },
+  { slug: 'wierook-cendana', img: 'img/p-wierook-cendana.webp', name: 'Wierook Cendana', detail: 'Sandelhout, 40 stokjes', ex: 7.25, rrp: 14.5, label: 'Handgerold', sub: 'geur', motief: 'Effen', mat: 'Sandelhout', kleur: 'Naturel', stock: 60, nieuw: true, eyebrow: 'Woonaccessoires · Geur' },
+  { slug: 'vaas-sekar-jagad', img: 'img/cat-woonaccessoires.webp', name: 'Vaas Sekar Jagad', detail: 'Keramiek, h 32 cm', ex: 78, rrp: 129, label: 'Handbeschilderd', sub: 'keramiek', motief: 'Sekar Jagad', mat: 'Keramiek', kleur: 'Zwart', stock: 9, eyebrow: 'Woonaccessoires · Keramiek' },
   { slug: 'kussenhoes-truntum', img: 'img/foto-volgt.svg', noPhoto: true, name: 'Kussenhoes Truntum', detail: 'Katoen, 45 × 45 cm', ex: 27.5, label: 'Batik cap', sub: 'kussen', motief: 'Truntum', mat: 'Katoen', kleur: 'Indigo', stock: 22, eyebrow: 'Woonaccessoires · Textiel' },
   { slug: 'plaid-sogan', img: 'img/foto-volgt.svg', noPhoto: true, name: 'Plaid Sogan', detail: 'Katoen, 130 × 180 cm', ex: 64, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen', kleur: 'Sogan bruin', stock: 5, eyebrow: 'Woonaccessoires · Textiel' },
   { slug: 'broodmand-ata', img: 'img/foto-volgt.svg', noPhoto: true, name: 'Broodmand Ata', detail: 'Ata-riet, 32 × 22 cm', ex: 31, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 14, eyebrow: 'Woonaccessoires · Manden' },
@@ -53,6 +53,8 @@ const MOTIFS = {
 
 const findProduct = (slug) => PRODUCTS.find((p) => p.slug === slug);
 const productUrl = (p) => 'product.html?p=' + p.slug;
+// 600px version for grids, thumbnails and the cart (the placeholder SVG has no small version)
+const thumbOf = (p) => p.img.replace(/\.webp$/, '-sm.webp');
 
 // Excl. VAT unit price per tier for a product
 function tierPrices(p) {

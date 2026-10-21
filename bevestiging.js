@@ -49,7 +49,7 @@ if (!order || !order.lines || !order.lines.length) {
     const p = findProduct(l.slug);
     if (!p) return '';
     return `<div class="done-line">
-      <div class="done-line__img"><img src="${p.img}" alt=""></div>
+      <div class="done-line__img"><img src="${thumbOf(p)}" alt=""></div>
       <div><div class="co-line__label">${esc(p.label)}</div><div class="done-line__name">${esc(p.name)}</div>
       <div class="co-line__detail">${esc(l.variant || p.detail)} · ${l.qty} stuks à ${fmt(l.unitEx)}</div></div>
       <div class="done-line__price">${fmt(Math.round(l.unitEx * l.qty * 100) / 100)}</div>
@@ -57,7 +57,7 @@ if (!order || !order.lines || !order.lines.length) {
   });
   if (order.gift) {
     lines.push(`<div class="done-line">
-      <div class="done-line__img"><img src="img/cat-sieraden.jpg" alt=""></div>
+      <div class="done-line__img"><img src="img/cat-sieraden-sm.webp" alt=""></div>
       <div><div class="co-line__label">Cadeau</div><div class="done-line__name">Armbandje Manik</div><div class="co-line__detail">Glaskralen · cadeau vanaf € 100</div></div>
       <div class="done-line__price">€ 0</div>
     </div>`);
