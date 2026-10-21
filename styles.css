@@ -1149,6 +1149,40 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
 .service-aside__light p a { color: var(--ink); }
 .contact__label--muted { margin-bottom: 10px; color: var(--muted); }
 
+/* ---------- Zoeken ---------- */
+.search-hero .page-hero__accent { margin-bottom: 14px; }
+.search-box { display: flex; align-items: center; gap: 20px; max-width: 900px; padding-bottom: 12px; border-bottom: 2px solid var(--orange); }
+.search-box input {
+  flex: 1; min-width: 0; padding: 0; border: 0; background: transparent; outline: none;
+  font: 700 44px 'Philosopher', sans-serif; color: var(--cream);
+}
+.search-box input::-webkit-search-cancel-button { display: none; }
+.search-box__clear {
+  border: 0; background: transparent; cursor: pointer;
+  font: 13px 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #A89B8A;
+}
+.search-box__clear:hover { color: var(--orange); }
+.search-box__clear[hidden] { display: none; }
+.search-suggest { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; font-size: 14px; color: #A89B8A; }
+.search-suggest > div { display: flex; flex-wrap: wrap; gap: 12px; }
+.suggest {
+  height: 32px; padding: 0 14px; border: 1px solid var(--border-dark); border-radius: 16px;
+  background: transparent; color: var(--muted-dark); font: 13px 'Jost', sans-serif; cursor: pointer;
+}
+.suggest:hover { border-color: var(--orange); color: var(--orange); }
+.search-results { padding: 48px var(--pad) 96px; }
+.search-results__count { margin-bottom: 32px; font-size: 15px; color: var(--muted); }
+.search-empty { margin-bottom: 32px; padding: 80px 40px; text-align: center; background: var(--sand); }
+.search-empty[hidden] { display: none; }
+.search-empty__accent { margin-bottom: 8px; font: 400 30px 'Kaushan Script', cursive; color: var(--orange); }
+.search-empty__title { margin-bottom: 28px; font: 700 28px 'Philosopher', sans-serif; }
+.search-empty__cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.search-empty__cats a {
+  height: 40px; padding: 0 18px; display: inline-flex; align-items: center;
+  border: 1px solid var(--ink); color: var(--ink); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+}
+.search-empty__cats a:hover { background: var(--ink); color: var(--cream); }
+
 /* Responsive (not in the design; follows the handoff's recommendations) */
 @media (max-width: 1200px) {
   .checkout { grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; }
@@ -1285,6 +1319,10 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
   .place { height: 300px; }
   .place__img { border-radius: 0 0 64px 0; }
   .faq { margin-top: 72px; padding: 56px var(--pad); }
+  .search-box input { font-size: 30px; }
+  .search-results { padding-top: 32px; padding-bottom: 72px; }
+  .search-empty { padding: 48px 20px; }
+  .search-empty__title { font-size: 22px; }
   .service-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .service-tabs::-webkit-scrollbar { display: none; }
   .service-tab { flex: none; margin-right: 24px; font-size: 13px; }
