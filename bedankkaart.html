@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<script src="gate.js?v=21"></script>
+<script src="gate.js?v=22"></script>
 <title>Bedankkaart · PUAS</title>
 <link rel="icon" href="img/puas-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,10 +53,11 @@
   .front .card__grid { grid-template-columns: 1fr 1fr; }
   .front__pattern {
     position: relative;
-    background: linear-gradient(rgba(31,26,22,.3), rgba(31,26,22,.3)), url('img/parang-sheet.webp') center / cover no-repeat, var(--ink);
+    background: linear-gradient(rgba(31,26,22,.3), rgba(31,26,22,.3)), url('img/batik-bloem-print.webp') center / cover no-repeat, var(--ink);
   }
-  .front__pattern img { position: absolute; left: 10mm; top: 10mm; width: 16.5mm; height: 15mm; object-fit: contain; }
-  .front__origin { position: absolute; left: 10mm; bottom: 10mm; font-size: 7pt; letter-spacing: .24em; text-transform: uppercase; color: var(--muted-dark); }
+  /* Dark badges keep the logo and label readable on the busy floral batik */
+  .front__pattern img { position: absolute; left: 8mm; top: 8mm; width: 22mm; height: 20mm; padding: 2.5mm 3mm; object-fit: contain; background: rgba(31,26,22,.88); border-radius: 3mm; }
+  .front__origin { position: absolute; left: 8mm; bottom: 8mm; padding: 1.6mm 3mm; border-radius: 2mm; background: rgba(31,26,22,.88); font-size: 6.5pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted-dark); }
   .front__text { padding: 11mm 11mm 10mm; background: var(--orange); color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
   .front__thanks { font: 400 36pt/1 'Kaushan Script', cursive; }
   .front__sub { margin-top: 4mm; font: 700 12.5pt/1.25 'Philosopher', sans-serif; }
