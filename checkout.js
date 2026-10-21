@@ -67,7 +67,7 @@ function render() {
   }).join('');
 
   const gift = t.subEx >= GIFT_EX;
-  $c('co-gift-text').textContent = gift ? 'Het armbandje Manik gaat gratis mee.' : 'Nog ' + fmt(GIFT_EX - t.subEx) + ' excl. btw tot je gratis armbandje Manik.';
+  $c('co-gift-text').textContent = gift ? 'Het armbandje Manik gaat als bedankje mee.' : 'Nog ' + fmt(GIFT_EX - t.subEx) + ' excl. btw, dan doen we er een armbandje Manik bij.';
   $c('co-gift-fill').style.width = Math.min(100, Math.round(t.subEx / GIFT_EX * 100)) + '%';
 
   $c('co-upsells').innerHTML = CO_UPSELLS.filter((s) => !lines.some((l) => l.slug === s)).slice(0, 3).map((s) => {

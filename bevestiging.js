@@ -5,7 +5,6 @@ let order = null;
 try { order = JSON.parse(readStore('puas-last-order') || 'null'); } catch { order = null; }
 
 const DAYS_NL = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
-const DAYS_ID = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const MONTHS_NL = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 
 // Next working day after `date` (skips Saturday and Sunday)
@@ -33,14 +32,14 @@ if (!order || !order.lines || !order.lines.length) {
 
   const steps = order.shipping.pickup
     ? [
-      { id: 'Hari ini', title: 'Vandaag', text: 'We pakken je bestelling in, met een kaartje over het motief.' },
-      { id: 'Besok', title: capital(DAYS_NL[shipDay.getDay()]), text: 'Klaar om op te halen. Je krijgt een e-mail zodra alles klaarstaat.' },
-      { id: 'Showroom', title: 'Van Diemenstraat 214', text: 'Ophalen in de showroom in Amsterdam, op afspraak.' },
+      { id: 'Vandaag', title: 'Inpakken', text: 'We zetten je dozen klaar, met kaartjes over de motieven erin.' },
+      { id: capital(DAYS_NL[shipDay.getDay()]), title: 'Klaar om op te halen', text: 'Je krijgt een mail zodra alles klaarstaat.' },
+      { id: 'Showroom', title: 'Van Diemenstraat 214', text: 'Ophalen in Amsterdam, op afspraak. Bel even voor je komt.' },
     ]
     : [
-      { id: 'Hari ini', title: 'Vandaag', text: 'Ingepakt in Amsterdam, met een kaartje over het motief.' },
-      { id: 'Besok', title: capital(DAYS_NL[shipDay.getDay()]), text: `${order.shipping.name.startsWith('PostNL') ? 'PostNL' : 'De bezorger'} neemt het mee. Track & trace per e-mail.` },
-      { id: DAYS_ID[deliveryDay.getDay()], title: deliveryText, text: `Bezorgd op ${c.straat}, ${c.plaats}.` },
+      { id: 'Vandaag', title: 'Inpakken', text: 'We pakken je dozen in, met kaartjes over de motieven erin.' },
+      { id: capital(DAYS_NL[shipDay.getDay()]), title: 'Onderweg', text: `${order.shipping.name.startsWith('PostNL') ? 'PostNL' : 'De bezorger'} neemt alles mee. De track-and-trace-link krijg je per mail.` },
+      { id: capital(DAYS_NL[deliveryDay.getDay()]), title: 'Bezorging', text: `Verwacht op ${deliveryText.toLowerCase()}, op ${c.straat} in ${c.plaats}.` },
     ];
   $b('timeline').innerHTML = steps.map((s) =>
     `<div class="timeline__card"><div class="timeline__id">${esc(s.id)}</div><div class="timeline__title">${esc(s.title)}</div><p>${esc(s.text)}</p></div>`).join('');
@@ -83,9 +82,9 @@ if (!order || !order.lines || !order.lines.length) {
   const withMotif = order.lines.map((l) => findProduct(l.slug)).find((p) => p && MOTIFS[p.motief]);
   if (withMotif) {
     $b('motif-title').textContent = withMotif.motief + ', jouw motief';
-    $b('motif-text').textContent = MOTIFS[withMotif.motief].text[0] + ' Motiefkaartjes voor in de winkel zitten in de doos.';
+    $b('motif-text').textContent = MOTIFS[withMotif.motief].text[0] + ' De uitlegkaartjes voor bij je kassa zitten in de doos.';
   } else {
-    $b('motif-title').textContent = 'Handgemaakt, dus uniek';
-    $b('motif-text').textContent = 'Elk stuk verschilt een fractie van de foto. Productbladen en foto\'s voor in je winkel vraag je op bij je accountmanager.';
+    $b('motif-title').textContent = 'Met de hand gemaakt';
+    $b('motif-text').textContent = 'Geen stuk is precies gelijk aan de foto, en dat is ook de bedoeling. Productbladen en foto\'s voor je winkel vraag je op bij Lisa.';
   }
 }

@@ -17,8 +17,8 @@ const PRODUCTS = [
     subline: 'Handgetekende batik tulis · Katoen · 50 × 50 cm',
     colors: [{ name: 'Sogan bruin', hex: '#8B4A1F' }, { name: 'Indigo', hex: '#2E3A59' }, { name: 'Zand', hex: '#D9C7A7' }],
     sizes: ['40 × 40 cm', '50 × 50 cm', '60 × 60 cm'], defaultSize: 1,
-    description: 'Kussenhoes van dichtgeweven katoen primissima met handgetekend parang-motief in sogan-bruin en gebroken wit. Verborgen rits aan de onderzijde, dubbel gestikte naden. Achterzijde in effen linnenlook.',
-    care: '100% katoen. Wassen op 30°C op de hand of in een waszak, binnenstebuiten, met kleurvriendelijk wasmiddel. Niet in de droger; strijken aan de achterzijde. Natuurlijke wasresten trekken na de eerste wasbeurt weg.',
+    description: 'Kussenhoes van stevig katoen met het parang-motief in sogan-bruin en gebroken wit. De rits zit verborgen aan de onderkant, de naden zijn dubbel gestikt. De achterkant is effen.',
+    care: 'Wassen op 30 graden, binnenstebuiten, met een mild wasmiddel. De eerste keer apart, want batik kan in het begin wat kleur afgeven. Niet in de droger, en strijken aan de achterkant.',
   },
   { slug: 'tafelloper-kawung', img: 'img/p-tafelloper-kawung.webp', name: 'Tafelloper Kawung', detail: 'Katoen, 40 × 180 cm', ex: 41.5, rrp: 69, label: 'Batik cap', sub: 'tafel', motief: 'Kawung', mat: 'Katoen', kleur: 'Sogan bruin', stock: 18, eyebrow: 'Woonaccessoires · Tafeltextiel' },
   { slug: 'ata-mand-met-deksel', img: 'img/p-ata-mand.webp', name: 'Ata-mand met deksel', detail: 'Ata-riet, ø 28 cm', ex: 52, cmp: 65, rrp: 89, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 3, eyebrow: 'Woonaccessoires · Manden' },
@@ -33,20 +33,20 @@ const PRODUCTS = [
 const MOTIFS = {
   Parang: {
     text: [
-      'Diagonale golflijnen, een van de oudste Javaanse motieven. Handgetekend in was (tulis) op katoen primissima, in kleine baden geverfd.',
-      'Elk exemplaar verschilt een fractie in lijn en kleur. Leverbaar in indigo, terracotta en oker; per 6 stuks verpakt, inclusief motiefkaartjes voor in de winkel.',
+      'Schuine golven die over het hele doek doorlopen. Parang is een van de oudste patronen van Java, en je herkent het meteen.',
+      'Geen twee exemplaren zijn precies gelijk. Je kiest uit sogan-bruin, indigo en zand, en in elke doos zitten kaartjes met uitleg over het motief voor bij je kassa.',
     ],
   },
   Kawung: {
     text: [
-      'Geometrisch raster van vier ovalen. Rustig patroon, geschikt voor grotere vlakken en series.',
-      'Per 6 stuks verpakt, inclusief motiefkaartjes voor in de winkel.',
+      'Vier ovalen rond een punt, steeds herhaald. Rustig en regelmatig, en daardoor makkelijk te combineren met effen stoffen of hout.',
+      'Per zes stuks verpakt, met kaartjes over het motief voor in de winkel.',
     ],
   },
   Truntum: {
     text: [
-      'Fijn sterrenpatroon op donkere grond. Kleinste rapport, combineert goed met Parang en Kawung.',
-      'Per 6 stuks verpakt, inclusief motiefkaartjes voor in de winkel.',
+      'Kleine sterren op donkere grond. Het fijnste patroon van de drie, en het mooist als accent naast Parang of Kawung.',
+      'Per zes stuks verpakt, met kaartjes over het motief voor in de winkel.',
     ],
   },
 };

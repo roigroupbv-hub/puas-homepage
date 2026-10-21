@@ -5,11 +5,11 @@ const product = findProduct(new URLSearchParams(location.search).get('p')) || PR
 const gallery = product.gallery || [product.img];
 
 const ACCORDIONS = [
-  { title: 'Beschrijving', body: product.description || `${product.name}: ${product.detail}. ${product.label}, handgemaakt en per doos van 6 stuks geleverd.` },
-  { title: 'Materiaal & onderhoud', body: product.care || `${product.mat}. Onderhoudsadvies staat op het productblad, op te vragen bij je accountmanager.` },
-  { title: 'Herkomst', body: 'Handgemaakt op Java, Indonesië. Rechtstreeks ingekocht via onze WFTO-partner. Elk doek is uniek en kan licht afwijken van de foto.' },
-  { title: 'Levering & betaling', body: 'Levering per doos van 6 stuks, franco vanaf € 500 in NL en BE. Betaling op factuur binnen 30 dagen na goedkeuring van je zakelijke account. Niet-verkochte voorraad kan binnen 90 dagen omgeruild worden voor andere motieven.' },
-  { title: 'Downloads voor retailers', body: 'Productblad met EAN-codes, hoge-resolutiefoto\'s, motiefkaartjes voor in de winkel en productteksten: download via je account of vraag ze op bij je accountmanager.' },
+  { title: 'Beschrijving', body: product.description || `${product.name}, ${product.detail.toLowerCase()}. ${product.label}, met de hand gemaakt in Indonesië. Je bestelt per doos van zes.` },
+  { title: 'Materiaal & onderhoud', body: product.care || `Gemaakt van ${product.mat.toLowerCase()}. Onderhoudsadvies per product vraag je op bij Lisa; ze stuurt het productblad mee.` },
+  { title: 'Herkomst', body: 'Met de hand gemaakt in Indonesië, in kleine oplages. Daardoor is geen stuk precies gelijk aan de foto: een lijn loopt net anders, een kleur valt iets warmer uit. Dat hoort erbij.' },
+  { title: 'Levering & betaling', body: 'Je bestelt per doos van zes. Vanaf € 500 excl. btw leveren we franco in Nederland en België, daaronder kost het € 19,50. Betalen op factuur kan binnen 30 dagen, zodra je zakelijke account is goedgekeurd. Blijft er iets liggen? Onverkochte voorraad ruil je binnen 90 dagen om voor een ander motief.' },
+  { title: 'Voor in je winkel', body: 'Productbladen, foto\'s in hoge resolutie en uitlegkaartjes over het motief vraag je op bij Lisa. De kaartjes zitten ook in elke doos.' },
 ];
 
 

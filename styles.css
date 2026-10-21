@@ -49,6 +49,8 @@ input::placeholder { color: var(--placeholder); }
   letter-spacing: .06em;
 }
 .topbar__links { display: flex; gap: 28px; }
+.topbar a { color: var(--ink); border-bottom: 1px solid rgba(31,26,22,.4); }
+.topbar a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* Header */
 .header {

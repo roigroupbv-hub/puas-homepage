@@ -107,7 +107,7 @@ document.body.insertAdjacentHTML('beforeend', `
   <div class="toast" id="toast" role="status">
     <div class="toast__check">✓</div>
     <div class="toast__body">
-      <div class="toast__title">Terima kasih! <span>Dank je wel</span></div>
+      <div class="toast__title">Toegevoegd</div>
       <div class="toast__text" id="toast-text"></div>
       <div class="toast__actions"><button type="button" class="toast__primary" data-cart-open>Bekijk bestelling</button><button type="button" class="link-btn link-btn--dark" data-toast-close>Verder winkelen</button></div>
     </div>
@@ -142,9 +142,9 @@ document.body.insertAdjacentHTML('beforeend', `
 const $id = (id) => document.getElementById(id);
 const badge = $id('cart-count');
 const UPSELLS = [
-  { slug: 'wierook-cendana', reason: 'Kassakoopje naast batik' },
-  { slug: 'ata-mand-met-deksel', reason: 'Presenteert kussens in de winkel' },
-  { slug: 'tafelloper-kawung', reason: 'Zelfde kleurfamilie, vaak samen verkocht' },
+  { slug: 'wierook-cendana', reason: 'Klein prijsje, doet het goed bij de kassa' },
+  { slug: 'ata-mand-met-deksel', reason: 'Handig om kussens in te presenteren' },
+  { slug: 'tafelloper-kawung', reason: 'Dezelfde warme bruintinten als de Parang' },
 ];
 
 function renderCart() {
@@ -178,12 +178,12 @@ function renderCart() {
   const giftEl = $id('cart-gift');
   giftEl.classList.toggle('is-unlocked', gift);
   giftEl.innerHTML = `<div class="gift__img"><img src="img/cat-sieraden-sm.webp" alt=""></div>
-    <div class="gift__text"><div>${gift ? 'Gefeliciteerd, je armbandje komt mee' : 'Nog ' + fmt(GIFT_EX - t.subEx) + ' tot een gratis armbandje'}</div>
-    <span>${gift ? 'Handgeregen kralenarmband Manik, als dank voor je bestelling.' : 'Bij een bestelling vanaf € 100 excl. btw leggen we een handgeregen kralenarmband Manik voor je in de doos.'}</span></div>
+    <div class="gift__text"><div>${gift ? 'Je armbandje gaat mee' : 'Nog ' + fmt(GIFT_EX - t.subEx) + ' tot een armbandje cadeau'}</div>
+    <span>${gift ? 'Een handgeregen kralenarmband Manik, als bedankje.' : 'Vanaf € 100 excl. btw doen we er een handgeregen kralenarmband Manik bij.'}</span></div>
     ${gift ? '<span class="gift__badge">Cadeau</span>' : ''}`;
 
   const ups = UPSELLS.filter((u) => !cart.lines.some((l) => l.slug === u.slug));
-  $id('cart-upsells').innerHTML = ups.length ? `<div class="eyebrow-dash">Vaak samen besteld</div>` + ups.map((u) => {
+  $id('cart-upsells').innerHTML = ups.length ? `<div class="eyebrow-dash">Past hierbij</div>` + ups.map((u) => {
     const p = findProduct(u.slug);
     return `<div class="upsell">
       <div class="thumb thumb--sm"><img src="${thumbOf(p)}" alt=""></div>
@@ -269,7 +269,7 @@ $id('confirm-remove').addEventListener('click', () => {
   lastRemoved = { line, index: pendingRemove };
   setConfirmOpen(false);
   hideToast('toast');
-  $id('regret-title').textContent = `Jammer, ${findProduct(line.slug).name} is verwijderd`;
+  $id('regret-title').textContent = `${findProduct(line.slug).name} is uit je bestelling`;
   showToast('regret', 6000);
 });
 $id('regret-undo').addEventListener('click', () => {

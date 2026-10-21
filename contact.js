@@ -7,11 +7,11 @@ const TOPICS = [
   { label: 'Anders', ph: 'Waar kunnen we je mee helpen?' },
 ];
 const FAQS = [
-  { q: 'Wat is de minimale afname voor zakelijke klanten?', a: 'Per artikel 6 stuks (één doos). Vanaf € 500 excl. btw leveren we franco in Nederland en België. Voor grotere oplages of eigen motieven werken we met een offerte.' },
-  { q: 'Kan ik op factuur betalen?', a: 'Ja. Na goedkeuring van je zakelijke account betaal je binnen 30 dagen op factuur. De eerste bestelling gaat vooruit, daarna op rekening.' },
-  { q: 'Hoe snel wordt er geleverd?', a: 'Voorraadartikelen verzenden we binnen 2–3 werkdagen vanuit Amsterdam. Maatwerk uit Pekalongan duurt 8–12 weken, afhankelijk van het motief en het seizoen.' },
-  { q: 'Kan ik niet-verkochte voorraad omruilen?', a: 'Binnen 90 dagen kun je onbeschadigde artikelen omruilen voor andere motieven of maten. Zo houd je je assortiment fris zonder risico.' },
-  { q: 'Krijg ik materiaal voor in de winkel?', a: 'Bij elke bestelling leveren we motiefkaartjes, productteksten en hoge-resolutiefoto\'s. Displaymateriaal kan op aanvraag.' },
+  { q: 'Wat is de minimale afname voor zakelijke klanten?', a: 'Zes stuks per artikel, dat is één doos. Vanaf € 500 excl. btw leveren we franco in Nederland en België. Wil je veel meer, of een eigen kleur? Dan maken we een offerte.' },
+  { q: 'Kan ik op factuur betalen?', a: 'Ja. Zodra je zakelijke account is goedgekeurd, betaal je binnen 30 dagen op factuur.' },
+  { q: 'Hoe snel wordt er geleverd?', a: 'Wat op voorraad is, gaat binnen 2 à 3 werkdagen de deur uit. Maatwerk duurt een stuk langer; de precieze levertijd spreken we per opdracht af.' },
+  { q: 'Kan ik niet-verkochte voorraad omruilen?', a: 'Ja, binnen 90 dagen ruil je onbeschadigde artikelen om voor een ander motief of een andere maat. Handig als iets in jouw winkel minder loopt dan je dacht.' },
+  { q: 'Krijg ik materiaal voor in de winkel?', a: 'In elke doos zitten uitlegkaartjes over het motief. Productteksten en foto\'s in hoge resolutie sturen we je op verzoek.' },
 ];
 
 const ct = { topic: 0, open: 0 };
@@ -40,7 +40,7 @@ document.addEventListener('click', (e) => {
 $k('msg-form').addEventListener('submit', (e) => {
   e.preventDefault();
   if (!e.target.reportValidity()) return;
-  $k('msg-sent-title').textContent = 'Terima kasih, ' + $k('m-name').value.trim().split(' ')[0];
+  $k('msg-sent-title').textContent = 'Dank je wel, ' + $k('m-name').value.trim().split(' ')[0];
   $k('msg-sent-text').textContent = `Je bericht is binnen. Lisa neemt binnen één werkdag contact met je op via ${$k('m-email').value.trim()}.`;
   $k('msg-form-wrap').hidden = true;
   $k('msg-sent').hidden = false;
