@@ -107,7 +107,7 @@ document.body.insertAdjacentHTML('beforeend', `
   <div class="toast" id="toast" role="status">
     <div class="toast__check">✓</div>
     <div class="toast__body">
-      <div class="toast__title">Toegevoegd</div>
+      <div class="toast__title">Terima kasih! <span>Dank je wel</span></div>
       <div class="toast__text" id="toast-text"></div>
       <div class="toast__actions"><button type="button" class="toast__primary" data-cart-open>Bekijk bestelling</button><button type="button" class="link-btn link-btn--dark" data-toast-close>Verder winkelen</button></div>
     </div>
