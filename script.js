@@ -99,7 +99,7 @@ document.body.insertAdjacentHTML('beforeend', `
       <div class="sumrow"><span>Verzending</span><span id="sum-ship"></span></div>
       <div class="sumrow sumrow--vat"><span>Btw 21%</span><span id="sum-vat"></span></div>
       <div class="sumrow sumrow--total"><span>Totaal incl. btw</span><span id="sum-total"></span></div>
-      <a href="#" class="btn-dark">Bestelling afronden</a>
+      <a href="winkelwagen.html" class="btn-dark">Bestelling afronden</a>
       <div class="drawer__note"><span>Betaling op factuur, 30 dagen</span><button type="button" class="link-btn" data-cart-close>Verder winkelen</button></div>
     </div>
   </aside>

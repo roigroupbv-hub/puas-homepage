@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winkelmand · PUAS</title>
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html">Assortiment</a>
+      <a href="#">Zakelijk</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="#" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="#" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="#" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__accent">Keranjang</div>
+      <h1>Winkelmand</h1>
+    </section>
+
+    <section class="checkout" id="checkout">
+      <div>
+        <div class="steps" id="steps"></div>
+
+        <div data-pane="1">
+          <div class="co-empty" id="co-empty" hidden>
+            <div class="co-empty__title">Je winkelmand is leeg</div>
+            <a href="assortiment.html" class="btn-primary">Naar de shop <span aria-hidden="true">→</span></a>
+          </div>
+          <div id="co-filled">
+            <div id="co-lines"></div>
+            <div class="co-gift">
+              <div>
+                <div class="co-gift__text" id="co-gift-text"></div>
+                <div class="co-gift__bar"><div id="co-gift-fill"></div></div>
+              </div>
+              <div class="co-gift__icon"><span></span></div>
+            </div>
+            <div class="co-upsells">
+              <div class="co-upsells__title">Past hierbij</div>
+              <div class="co-upsells__grid" id="co-upsells"></div>
+            </div>
+            <div class="co-nav co-nav--end"><button type="button" class="btn-primary" data-next>Naar gegevens <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+
+        <div data-pane="2" hidden>
+          <div class="segment">
+            <button type="button" id="seg-private">Particulier</button>
+            <button type="button" id="seg-business">Zakelijk</button>
+          </div>
+          <form class="fields" id="details-form" novalidate>
+            <div class="field" data-business-field hidden><label for="f-company">Bedrijfsnaam</label><input id="f-company" name="bedrijf" placeholder="Studio Noor" autocomplete="organization"></div>
+            <div class="field" data-business-field hidden><label for="f-vat">Btw-nummer</label><input id="f-vat" name="btw" placeholder="NL000000000B01"></div>
+            <div class="field"><label for="f-first">Voornaam</label><input id="f-first" name="voornaam" placeholder="Sanne" autocomplete="given-name" required></div>
+            <div class="field"><label for="f-last">Achternaam</label><input id="f-last" name="achternaam" placeholder="de Vries" autocomplete="family-name" required></div>
+            <div class="field field--wide"><label for="f-email">E-mailadres</label><input id="f-email" name="email" type="email" placeholder="sanne@voorbeeld.nl" autocomplete="email" required></div>
+            <div class="field field--wide"><label for="f-street">Straat en huisnummer</label><input id="f-street" name="straat" placeholder="Prinsengracht 112" autocomplete="street-address" required></div>
+            <div class="field"><label for="f-zip">Postcode</label><input id="f-zip" name="postcode" placeholder="1015 EA" autocomplete="postal-code" required></div>
+            <div class="field"><label for="f-city">Plaats</label><input id="f-city" name="plaats" placeholder="Amsterdam" autocomplete="address-level2" required></div>
+            <div class="field"><label for="f-country">Land</label><select id="f-country" name="land"><option>Nederland</option><option>België</option><option>Duitsland</option></select></div>
+            <div class="field"><label for="f-phone">Telefoon (voor de bezorger)</label><input id="f-phone" name="telefoon" type="tel" placeholder="06 12 34 56 78" autocomplete="tel"></div>
+          </form>
+          <div class="co-nav"><button type="button" class="co-back" data-prev>← Terug</button><button type="button" class="btn-primary" data-next>Naar verzending <span aria-hidden="true">→</span></button></div>
+        </div>
+
+        <div data-pane="3" hidden>
+          <div class="options" id="ship-options"></div>
+          <div class="co-nav"><button type="button" class="co-back" data-prev>← Terug</button><button type="button" class="btn-primary" data-next>Naar betaling <span aria-hidden="true">→</span></button></div>
+        </div>
+
+        <div data-pane="4" hidden>
+          <div class="options" id="pay-options"></div>
+          <div class="field field--bank" id="bank-field"><label for="bank">Je bank</label><select id="bank"><option>ING</option><option>Rabobank</option><option>ABN AMRO</option><option>Triodos</option><option>bunq</option><option>ASN Bank</option></select></div>
+          <label class="terms"><input type="checkbox" id="terms" required><span>Ik ga akkoord met de <a href="#">voorwaarden</a> en het retourbeleid van 30 dagen.</span></label>
+          <div class="co-nav"><button type="button" class="co-back" data-prev>← Terug</button><button type="button" class="btn-primary" id="place-order">Bestelling plaatsen</button></div>
+        </div>
+      </div>
+
+      <aside class="summary">
+        <div class="summary__title">Overzicht</div>
+        <div class="summary__lines" id="sum-lines"></div>
+        <div class="summary__rows">
+          <div><span>Subtotaal (excl. btw)</span><span id="aside-sub"></span></div>
+          <div><span>Verzending</span><span id="aside-ship"></span></div>
+          <div><span>Btw 21%</span><span id="aside-vat"></span></div>
+        </div>
+        <div class="summary__total"><span>Totaal incl. btw</span><span id="aside-total"></span></div>
+        <form class="coupon" id="coupon">
+          <input placeholder="Kortingscode" aria-label="Kortingscode">
+          <button type="submit">Toepassen</button>
+        </form>
+        <div class="coupon__note" id="coupon-note" role="status"></div>
+        <div class="summary__usps">
+          <div><span class="dot"></span>Betaling op factuur voor zakelijke accounts</div>
+          <div><span class="dot"></span>Ingepakt in Amsterdam, met kaartje over het motief</div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="#">Verzenden &amp; retourneren</a></div>
+        <div><a href="#">Onderhoud van batik</a></div>
+        <div><a href="#">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=5"></script>
+<script src="script.js?v=5"></script>
+<script src="checkout.js?v=5"></script>
+</body>
+</html>

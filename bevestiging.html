@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bestelling geplaatst · PUAS</title>
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html">Assortiment</a>
+      <a href="#">Zakelijk</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="#" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="#" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="#" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="thanks-hero">
+      <div class="thanks-hero__number" id="order-number"></div>
+      <h1 id="thanks-title">Terima kasih</h1>
+      <p id="thanks-text">Je bestelling is binnen. De bevestiging staat in je inbox.</p>
+    </section>
+
+    <div id="order-found">
+      <section class="timeline" id="timeline"></section>
+
+      <section class="checkout checkout--done">
+        <div>
+          <div class="done-title">Je bestelling</div>
+          <div id="order-lines"></div>
+          <div class="done-totals" id="order-totals"></div>
+          <div class="done-actions">
+            <a href="assortiment.html" class="btn-primary">Verder winkelen <span aria-hidden="true">→</span></a>
+            <a href="#" class="btn-outline btn-outline--link">Mijn account</a>
+          </div>
+        </div>
+        <aside class="done-aside">
+          <div class="done-aside__dark">
+            <div class="done-aside__label" id="address-label">Bezorgadres</div>
+            <div class="done-aside__text" id="order-address"></div>
+            <div class="done-aside__label">Betaling</div>
+            <div class="done-aside__text" id="order-payment"></div>
+          </div>
+          <div class="done-aside__motif">
+            <div class="done-aside__motif-title" id="motif-title"></div>
+            <p id="motif-text"></p>
+            <a href="#" class="text-link text-link--small">Prijslijst bekijken</a>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <section class="co-empty co-empty--page" id="order-missing" hidden>
+      <div class="co-empty__title">Geen bestelling gevonden</div>
+      <p>Op dit apparaat is nog geen bestelling geplaatst.</p>
+      <a href="assortiment.html" class="btn-primary">Naar de shop <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="#">Verzenden &amp; retourneren</a></div>
+        <div><a href="#">Onderhoud van batik</a></div>
+        <div><a href="#">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=5"></script>
+<script src="script.js?v=5"></script>
+<script src="bevestiging.js?v=5"></script>
+</body>
+</html>
