@@ -17,11 +17,12 @@ Open daarna http://localhost:8790.
 - `product.html` + `product.js`: productpagina, één pagina voor alle producten via `product.html?p=<slug>`
 - `winkelwagen.html` + `checkout.js`: winkelmand en afrekenen in 4 stappen (winkelmand, gegevens, verzending, betaling)
 - `bevestiging.html` + `bevestiging.js`: orderbevestiging, leest de laatst geplaatste bestelling uit de browser
+- `zakelijk.html` + `zakelijk.js`: zakelijke voorwaarden, staffeltabel (uit data.js) en aanvraagformulier (verstuurt nog niets)
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
 - `img/`: logo, patroontegel en foto's (omgezet naar JPG)
 - `design-referentie/`: het originele ontwerp en de handoff-README (niet in git, zie `.gitignore`)
 
-Links naar Zakelijk, Contact, Zoeken, Account en Service staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
+Links naar Contact, Zoeken, Account en Service staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
 
 Na een wijziging aan een css/js-bestand: verhoog `?v=N` in alle html-bestanden, anders laden browsers via de cache een mix van oud en nieuw.

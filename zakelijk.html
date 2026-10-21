@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakelijk · PUAS</title>
+<meta name="description" content="Staffelprijzen, franco vanaf € 500, betalen op factuur. Zakelijk account voor winkels, horeca en interieurontwerpers.">
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=8">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html">Assortiment</a>
+      <a href="zakelijk.html" class="is-active">Zakelijk</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="#" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="#" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="#" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cat-hero cat-hero--tall">
+      <div class="cat-hero__photo"><img src="img/cat-woonaccessoires.jpg" alt=""></div>
+      <div class="cat-hero__shade"></div>
+      <div class="cat-hero__text cat-hero__text--inset">
+        <div class="page-hero__accent page-hero__accent--lg">Grosir</div>
+        <h1>Voor winkels, horeca en ontwerpers</h1>
+        <p>Staffelprijzen, franco vanaf € 500, betalen op factuur.</p>
+      </div>
+    </section>
+
+    <section class="usp-cards">
+      <div class="usp-card"><div class="usp-card__num">−20%</div><div class="usp-card__title">Staffelkorting</div><p>Per dessin: −7% vanaf 12 stuks, −14% vanaf 24 en −20% vanaf 48 stuks.</p></div>
+      <div class="usp-card"><div class="usp-card__num">€ 500</div><div class="usp-card__title">Franco</div><p>Gratis bezorgd in NL en BE. Daaronder € 19,50 per zending.</p></div>
+      <div class="usp-card"><div class="usp-card__num">30 dagen</div><div class="usp-card__title">Op factuur</div><p>Betalen na levering, binnen 30 dagen na goedkeuring van je account.</p></div>
+      <div class="usp-card"><div class="usp-card__num">30 st.</div><div class="usp-card__title">Eigen dessin</div><p>Kleur of motief voor jouw zaak, levertijd acht weken.</p></div>
+    </section>
+
+    <section class="price-table">
+      <div>
+        <div class="kicker"><span>Harga</span>Staffelprijzen</div>
+        <h2>Per dessin, excl. btw</h2>
+        <p>De korting geldt per dessin, niet per productgroep. Zo blijft de oplage klein en de prijs eerlijk voor de makers.</p>
+      </div>
+      <div>
+        <div class="price-table__scroll">
+          <div class="price-table__grid" id="price-table"></div>
+        </div>
+        <div class="price-table__note">Minimale afname 6 stuks per dessin. Volledige prijslijst na goedkeuring van je account.</div>
+      </div>
+    </section>
+
+    <section class="apply" id="aanvragen">
+      <div>
+        <div class="kicker kicker--light"><span>Daftar</span>Aanvragen</div>
+        <h2>Zakelijk account</h2>
+        <p>Lisa belt binnen één werkdag terug met de prijslijst. Samples sturen we op.</p>
+        <div class="apply__contact">
+          <b>Lisa van der Meer</b>
+          Accountmanager<br>
+          <a href="mailto:zakelijk@puas.nl">zakelijk@puas.nl</a><br>
+          <a href="tel:+31201234567">+31 20 123 45 67</a>
+        </div>
+      </div>
+      <div class="apply__box">
+        <form class="apply__form" id="apply-form" novalidate>
+          <div class="apply__types" role="radiogroup" aria-label="Soort bedrijf">
+            <button type="button" class="type-chip is-active" data-type="Winkel" aria-pressed="true">Winkel</button>
+            <button type="button" class="type-chip" data-type="Horeca" aria-pressed="false">Horeca</button>
+            <button type="button" class="type-chip" data-type="Interieurontwerp" aria-pressed="false">Interieurontwerp</button>
+            <button type="button" class="type-chip" data-type="Anders" aria-pressed="false">Anders</button>
+          </div>
+          <div class="field field--dark field--wide"><label for="a-company">Bedrijfsnaam</label><input id="a-company" placeholder="Conceptstore Noor" autocomplete="organization" required></div>
+          <div class="field field--dark"><label for="a-kvk">KvK-nummer</label><input id="a-kvk" placeholder="12345678" inputmode="numeric" pattern="[0-9]{8}" title="8 cijfers"></div>
+          <div class="field field--dark"><label for="a-vat">Btw-nummer</label><input id="a-vat" placeholder="NL000000000B01"></div>
+          <div class="field field--dark"><label for="a-name">Contactpersoon</label><input id="a-name" placeholder="Noor Jansen" autocomplete="name" required></div>
+          <div class="field field--dark"><label for="a-email">E-mailadres</label><input id="a-email" type="email" placeholder="noor@voorbeeld.nl" autocomplete="email" required></div>
+          <div class="field field--dark field--wide"><label for="a-web">Website of Instagram</label><input id="a-web" placeholder="conceptstorenoor.nl"></div>
+          <div class="field field--dark field--wide"><label for="a-msg">Waar denk je aan?</label><textarea id="a-msg" rows="3" placeholder="Kussens en tafellopers voor de winkel, eerst graag samples."></textarea></div>
+          <button type="submit" class="btn-primary apply__submit">Aanvraag versturen <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="apply__sent" id="apply-sent" hidden>
+          <div class="apply__thanks">Terima kasih</div>
+          <p>Je aanvraag is binnen. Lisa neemt binnen één werkdag contact op.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="#">Verzenden &amp; retourneren</a></div>
+        <div><a href="#">Onderhoud van batik</a></div>
+        <div><a href="#">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=8"></script>
+<script src="script.js?v=8"></script>
+<script src="zakelijk.js?v=8"></script>
+</body>
+</html>
