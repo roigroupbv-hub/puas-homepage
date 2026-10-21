@@ -10,12 +10,12 @@ const PAYMENTS = [
   { name: 'iDEAL', desc: 'Via je eigen bank' },
   { name: 'Creditcard', desc: 'Visa, Mastercard, Amex' },
   { name: 'Bancontact', desc: 'Voor België' },
-  { name: 'Op factuur', desc: 'Binnen 30 dagen · zakelijke accounts', businessOnly: true },
+  { name: 'Op factuur', desc: 'Binnen 30 dagen na goedkeuring van je account', invoice: true },
 ];
 const STEPS = ['Winkelmand', 'Gegevens', 'Verzending', 'Betaling'];
 const CO_UPSELLS = ['tafelloper-kawung', 'wierook-cendana', 'schaal-manik', 'ata-mand-met-deksel', 'kussenhoes-parang'];
 
-const co = { step: 1, reached: 1, business: false, ship: 0, pay: 0 };
+const co = { step: 1, reached: 1, ship: 0, pay: 0 };
 const $c = (id) => document.getElementById(id);
 
 function totals() {
@@ -79,22 +79,12 @@ function render() {
     </div>`;
   }).join('');
 
-  // Step 2: business fields
-  document.querySelectorAll('[data-business-field]').forEach((f) => {
-    f.hidden = !co.business;
-    f.querySelector('input').required = co.business;
-  });
-  $c('seg-private').classList.toggle('is-active', !co.business);
-  $c('seg-business').classList.toggle('is-active', co.business);
-
   // Step 3 & 4: options
   $c('ship-options').innerHTML = SHIPPING.map((o, i) => {
     const cost = o.cost(t.subEx);
     return optionHtml(o, i, co.ship, 'ship', cost === 0 ? (o.pickup ? 'Gratis' : 'Franco') : fmt(cost) + ' excl. btw');
   }).join('');
-  if (PAYMENTS[co.pay].businessOnly && !co.business) co.pay = 0;
-  $c('pay-options').innerHTML = PAYMENTS.map((o, i) =>
-    optionHtml(o, i, co.pay, 'pay', o.businessOnly && !co.business ? 'Alleen zakelijk' : '', o.businessOnly && !co.business)).join('');
+  $c('pay-options').innerHTML = PAYMENTS.map((o, i) => optionHtml(o, i, co.pay, 'pay', '')).join('');
   $c('bank-field').hidden = co.pay !== 0;
   $c('place-order').textContent = 'Bestelling plaatsen · ' + fmt(t.total);
 
@@ -129,10 +119,9 @@ function placeOrder() {
     placedAt: new Date().toISOString(),
     lines: window.puasCart.lines.map((l) => ({ ...l, unitEx: unitEx(findProduct(l.slug), l.qty) })),
     customer: f,
-    business: co.business,
     shipping: { name: ship.name, pickup: !!ship.pickup },
     payment: pay.name + (co.pay === 0 ? ' · ' + $c('bank').value : ''),
-    paid: !pay.businessOnly,
+    paid: !pay.invoice,
     gift: t.subEx >= GIFT_EX,
     totals: t,
   };
@@ -143,7 +132,7 @@ function placeOrder() {
 }
 
 document.addEventListener('click', (e) => {
-  const t = e.target.closest('[data-step],[data-next],[data-prev],[data-ship],[data-pay],[data-co-add],#seg-private,#seg-business,#place-order');
+  const t = e.target.closest('[data-step],[data-next],[data-prev],[data-ship],[data-pay],[data-co-add],#place-order');
   if (!t || t.disabled) return;
   if (t.dataset.step) goTo(Number(t.dataset.step));
   else if (t.dataset.next !== undefined) {
@@ -155,8 +144,6 @@ document.addEventListener('click', (e) => {
   else if (t.dataset.ship !== undefined) { co.ship = Number(t.dataset.ship); render(); }
   else if (t.dataset.pay !== undefined) { co.pay = Number(t.dataset.pay); render(); }
   else if (t.dataset.coAdd) window.puasCart.add(t.dataset.coAdd, MOQ);
-  else if (t.id === 'seg-private') { co.business = false; render(); }
-  else if (t.id === 'seg-business') { co.business = true; render(); }
   else if (t.id === 'place-order') placeOrder();
 });
 $c('details-form').addEventListener('submit', (e) => e.preventDefault());

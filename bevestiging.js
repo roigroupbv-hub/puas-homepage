@@ -73,7 +73,7 @@ if (!order || !order.lines || !order.lines.length) {
 
   $b('address-label').textContent = order.shipping.pickup ? 'Ophalen door' : 'Bezorgadres';
   $b('order-address').innerHTML = [
-    order.business && c.bedrijf ? `<b>${esc(c.bedrijf)}</b>` : '',
+    c.bedrijf ? `<b>${esc(c.bedrijf)}</b>` : '',
     `<b>${esc(c.voornaam)} ${esc(c.achternaam)}</b>`,
     order.shipping.pickup ? 'Showroom Van Diemenstraat 214, Amsterdam' : `${esc(c.straat)}<br>${esc(c.postcode)} ${esc(c.plaats)}`,
   ].filter(Boolean).join('<br>');

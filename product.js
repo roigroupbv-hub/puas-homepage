@@ -12,12 +12,6 @@ const ACCORDIONS = [
   { title: 'Downloads voor retailers', body: 'Productblad met EAN-codes, hoge-resolutiefoto\'s, motiefkaartjes voor in de winkel en productteksten: download via je account of vraag ze op bij je accountmanager.' },
 ];
 
-const REVIEWS = [
-  { stars: '★★★★★', title: 'Mooier dan op de foto', date: '12 augustus 2026', body: 'De stof is stevig en het motief is echt met de hand getekend — je ziet kleine variaties in de lijnen. Past prachtig op onze linnen bank.', author: 'Marieke, Utrecht' },
-  { stars: '★★★★★', title: 'Fijn dat het verhaal erbij zit', date: '3 juli 2026', body: 'Er zat een kaartje bij over de werkplaats en de betekenis van parang. Cadeau gegeven aan mijn moeder, ze was er stil van.', author: 'Daan, Gent' },
-  { stars: '★★★★☆', title: 'Kleur iets warmer dan verwacht', date: '21 juni 2026', body: 'Prachtige kwaliteit. Het bruin is in het echt iets roder dan op mijn scherm, maar bij ons interieur werkt dat juist goed.', author: 'Sanne, Haarlem' },
-];
-const BARS = [{ n: 5, c: 31, w: 84 }, { n: 4, c: 4, w: 11 }, { n: 3, c: 2, w: 5 }, { n: 2, c: 0, w: 0 }, { n: 1, c: 0, w: 0 }];
 
 const pdp = { img: 0, color: 0, size: product.defaultSize || 0, qty: MOQ, open: 0 };
 const $p = (id) => document.getElementById(id);
@@ -37,10 +31,6 @@ $p('main-label').textContent = product.label;
 $p('eyebrow').textContent = product.eyebrow;
 $p('name').textContent = product.name;
 $p('subline').textContent = product.subline || `${product.label} · ${product.detail}`;
-$p('rating').innerHTML = product.rating
-  ? `<span class="stars">★★★★★</span><span>${product.rating.score} · ${product.rating.count} beoordelingen van retailers</span>`
-  : '';
-$p('rating').hidden = !product.rating;
 $p('stock-usp').textContent = `Voorraad: ${product.stock * MOQ} stuks · levertijd 2–3 werkdagen`;
 $p('sticky-img').src = product.img;
 $p('sticky-name').textContent = product.name;
@@ -51,19 +41,10 @@ if (motif) {
   $p('motif-name').textContent = product.motief;
   $p('motif-text').innerHTML = motif.text.map((t) => `<p>${esc(t)}</p>`).join('');
   $p('motif-img').src = product.img;
+  document.querySelector('.motif-block__photo').hidden = !!product.noPhoto;
   document.querySelector('.motif-block__circle').classList.add('motif__circle--' + product.motief.toLowerCase());
 }
 
-if (product.rating) {
-  $p('reviews').hidden = false;
-  $p('review-bars').innerHTML = BARS.map((b) =>
-    `<div class="bar"><span>${b.n}</span><div class="bar__track"><div style="width:${b.w}%"></div></div><span>${b.c}</span></div>`).join('');
-  $p('review-list').innerHTML = REVIEWS.map((r) => `<div class="review">
-    <div class="review__head"><div><span class="stars">${r.stars}</span><b>${esc(r.title)}</b></div><span>${r.date}</span></div>
-    <p>${esc(r.body)}</p>
-    <div class="review__author">${esc(r.author)} · Geverifieerde koper</div>
-  </div>`).join('');
-}
 
 $p('related').innerHTML = PRODUCTS.filter((p) => p.slug !== product.slug).slice(0, 4).map((p) => `
   <article class="product">
@@ -87,6 +68,7 @@ function render() {
   $p('main-img').src = gallery[pdp.img];
   $p('main-img').alt = product.name;
   $p('thumbs').hidden = gallery.length < 2;
+  document.querySelector('.pdp').classList.toggle('pdp--single', gallery.length < 2);
   $p('thumbs').innerHTML = gallery.length < 2 ? '' : gallery.map((src, i) =>
     `<button type="button" class="pdp__thumb${i === pdp.img ? ' is-active' : ''}" data-img="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt=""></button>`).join('');
 

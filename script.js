@@ -286,6 +286,25 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('puas:btw', renderCart);
 renderCart();
 
+// ---------- Static product prices (homepage): filled from data.js, follow the VAT choice ----------
+function renderStaticPrices() {
+  const incl = window.puasBtw.incl;
+  document.querySelectorAll('.js-price').forEach((el) => {
+    const p = findProduct(el.dataset.price);
+    el.textContent = fmt(withVat(p.ex, incl));
+    el.classList.toggle('price--sale', !!p.cmp);
+  });
+  document.querySelectorAll('.js-price-compare').forEach((el) => {
+    const p = findProduct(el.dataset.price);
+    el.textContent = p.cmp ? fmt(withVat(p.cmp, incl)) : '';
+  });
+  document.querySelectorAll('.js-btw-note').forEach((el) => {
+    el.textContent = `Inkoopprijzen per stuk, ${incl ? 'incl.' : 'excl.'} btw · per doos van 6`;
+  });
+}
+document.addEventListener('puas:btw', renderStaticPrices);
+renderStaticPrices();
+
 // ---------- Simple "add a box" buttons (homepage, related products) ----------
 document.addEventListener('click', (e) => {
   const button = e.target.closest('[data-add-box]');

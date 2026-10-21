@@ -9,14 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 <div class="canvas">
 
   <div class="topbar">
-    <span>Gratis verzending in NL &amp; BE vanaf €75</span>
-    <div class="topbar__links"><span>Klantenservice</span><span>Winkel in Amsterdam</span><span>NL / EN</span></div>
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
   </div>
 
   <header class="header">
@@ -65,22 +65,23 @@
           <img src="img/cat-woonaccessoires.jpg" alt="">
           <div class="tile__label"><div class="tile__eyebrow">Meest bekeken</div>Woonaccessoires</div>
         </a>
-        <a href="#" class="tile"><img src="img/cat-kleding.jpg" alt=""><div class="tile__label">Kleding</div></a>
-        <a href="#" class="tile"><img src="img/cat-sieraden.jpg" alt=""><div class="tile__label">Sieraden</div></a>
-        <a href="#" class="tile"><img src="img/cat-beelden-kunst.jpg" alt=""><div class="tile__label">Beelden &amp; Kunst</div></a>
-        <a href="#" class="tile"><img src="img/cat-tassen.jpg" alt=""><div class="tile__label">Tassen</div></a>
+        <div class="tile tile--soon"><img src="img/cat-kleding.jpg" alt=""><span class="tile__soon">Binnenkort</span><div class="tile__label">Kleding</div></div>
+        <div class="tile tile--soon"><img src="img/cat-sieraden.jpg" alt=""><span class="tile__soon">Binnenkort</span><div class="tile__label">Sieraden</div></div>
+        <div class="tile tile--soon"><img src="img/cat-beelden-kunst.jpg" alt=""><span class="tile__soon">Binnenkort</span><div class="tile__label">Beelden &amp; Kunst</div></div>
+        <div class="tile tile--soon"><img src="img/cat-tassen.jpg" alt=""><span class="tile__soon">Binnenkort</span><div class="tile__label">Tassen</div></div>
       </div>
       <div class="center"><a href="assortiment.html" class="text-link">Alles bekijken</a></div>
     </section>
 
     <section class="section section--new">
       <div class="section-head"><span></span><h2>Nieuw in de shop</h2><span></span></div>
+      <p class="section-note js-btw-note">Inkoopprijzen per stuk, excl. btw · per doos van 6</p>
       <div class="products">
         <article class="product">
           <a href="product.html?p=kussenhoes-parang" class="product__photo"><img src="img/p-kussenhoes-parang.jpg" alt="Kussenhoes met parang-motief"><span class="product__label">Batik tulis</span></a>
           <div class="product__info">
             <div><a href="product.html?p=kussenhoes-parang" class="product__name">Kussenhoes Parang</a><div class="product__detail">Katoen, 50 × 50 cm</div></div>
-            <div class="product__price"><div class="price price--sale">€ 49</div><div class="price-compare">€ 59</div></div>
+            <div class="product__price"><div class="price js-price" data-price="kussenhoes-parang"></div><div class="price-compare js-price-compare" data-price="kussenhoes-parang"></div></div>
           </div>
           <button type="button" class="btn-pattern" data-add-box="kussenhoes-parang">In winkelmand</button>
         </article>
@@ -88,7 +89,7 @@
           <a href="product.html?p=tafelloper-kawung" class="product__photo"><img src="img/p-tafelloper-kawung.jpg" alt="Tafelloper op teakhouten tafel"><span class="product__label">Batik cap</span></a>
           <div class="product__info">
             <div><a href="product.html?p=tafelloper-kawung" class="product__name">Tafelloper Kawung</a><div class="product__detail">Katoen, 40 × 180 cm</div></div>
-            <div class="product__price"><div class="price">€ 69</div></div>
+            <div class="product__price"><div class="price js-price" data-price="tafelloper-kawung"></div><div class="price-compare js-price-compare" data-price="tafelloper-kawung"></div></div>
           </div>
           <button type="button" class="btn-pattern" data-add-box="tafelloper-kawung">In winkelmand</button>
         </article>
@@ -96,7 +97,7 @@
           <a href="product.html?p=ata-mand-met-deksel" class="product__photo"><img src="img/p-ata-mand.jpg" alt="Ronde ata-mand"><span class="product__label">Handgevlochten</span></a>
           <div class="product__info">
             <div><a href="product.html?p=ata-mand-met-deksel" class="product__name">Ata-mand met deksel</a><div class="product__detail">Ata-riet, ø 28 cm</div></div>
-            <div class="product__price"><div class="price price--sale">€ 89</div><div class="price-compare">€ 109</div></div>
+            <div class="product__price"><div class="price js-price" data-price="ata-mand-met-deksel"></div><div class="price-compare js-price-compare" data-price="ata-mand-met-deksel"></div></div>
           </div>
           <button type="button" class="btn-pattern" data-add-box="ata-mand-met-deksel">In winkelmand</button>
         </article>
@@ -104,7 +105,7 @@
           <a href="product.html?p=wierook-cendana" class="product__photo"><img src="img/p-wierook-cendana.jpg" alt="Wierook in keramische houder"><span class="product__label">Handgerold</span></a>
           <div class="product__info">
             <div><a href="product.html?p=wierook-cendana" class="product__name">Wierook Cendana</a><div class="product__detail">Sandelhout, 40 stokjes</div></div>
-            <div class="product__price"><div class="price">€ 14,50</div></div>
+            <div class="product__price"><div class="price js-price" data-price="wierook-cendana"></div><div class="price-compare js-price-compare" data-price="wierook-cendana"></div></div>
           </div>
           <button type="button" class="btn-pattern" data-add-box="wierook-cendana">In winkelmand</button>
         </article>
@@ -148,12 +149,12 @@
         <div class="footer__title">Contact</div>
         <div>hallo@puas.nl</div>
         <div>+31 20 123 45 67</div>
-        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Ma – vr, 9.00 – 17.30</div>
         <div>Showroom op afspraak</div>
       </div>
       <div class="footer__col">
         <div class="footer__title">Service</div>
-        <div><a href="service.html#verzenden">Verzenden &amp; retourneren</a></div>
+        <div><a href="service.html#verzenden">Verzenden &amp; omruilen</a></div>
         <div><a href="service.html#onderhoud">Onderhoud van batik</a></div>
         <div><a href="service.html#vragen">Veelgestelde vragen</a></div>
         <div><a href="#">Privacy</a></div>
@@ -167,7 +168,7 @@
   </footer>
 
 </div>
-<script src="data.js?v=12"></script>
-<script src="script.js?v=12"></script>
+<script src="data.js?v=13"></script>
+<script src="script.js?v=13"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="parang" width="44" height="44" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="44" height="44" fill="#1F1A16"/>
+      <rect x="0" y="0" width="7" height="44" fill="#F5841F" opacity=".22"/>
+      <rect x="22" y="0" width="3" height="44" fill="#F5841F" opacity=".22"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="800" fill="url(#parang)"/>
+  <rect x="150" y="345" width="300" height="110" fill="#1F1A16"/>
+  <text x="300" y="398" text-anchor="middle" font-family="Jost, Helvetica, Arial, sans-serif" font-size="30" letter-spacing="6" fill="#F4EFE6">FOTO VOLGT</text>
+  <rect x="270" y="420" width="60" height="3" fill="#F5841F"/>
+</svg>
