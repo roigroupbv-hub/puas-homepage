@@ -14,7 +14,9 @@ const FAQS = [
   { q: 'Krijg ik materiaal voor in de winkel?', a: 'In elke doos zitten uitlegkaartjes over het motief. Productteksten en foto\'s in hoge resolutie sturen we je op verzoek.' },
 ];
 
-const ct = { topic: 0, open: 0 };
+// ?onderwerp=showroom (or prijslijst, samples, anders) preselects a topic and jumps to the form
+const askedTopic = TOPICS.findIndex((t) => t.label.toLowerCase() === (new URLSearchParams(location.search).get('onderwerp') || '').toLowerCase());
+const ct = { topic: Math.max(0, askedTopic), open: 0 };
 const $k = (id) => document.getElementById(id);
 
 function renderTopics() {
@@ -53,4 +55,5 @@ $k('msg-reset').addEventListener('click', () => {
 });
 
 renderTopics();
+if (askedTopic >= 0) document.querySelector('.message-box').scrollIntoView({ block: 'start' });
 renderFaq();
