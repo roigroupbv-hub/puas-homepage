@@ -85,6 +85,6 @@ if (!order || !order.lines || !order.lines.length) {
     $b('motif-text').textContent = MOTIFS[withMotif.motief].text[0] + ' De uitlegkaartjes voor bij je kassa zitten in de doos.';
   } else {
     $b('motif-title').textContent = 'Met de hand gemaakt';
-    $b('motif-text').textContent = 'Geen stuk is precies gelijk aan de foto, en dat is ook de bedoeling. Productbladen en foto\'s voor je winkel vraag je op bij Lisa.';
+    $b('motif-text').textContent = 'Geen stuk is precies gelijk aan de foto, en dat is ook de bedoeling. Productbladen en foto\'s voor je winkel sturen we je graag.';
   }
 }

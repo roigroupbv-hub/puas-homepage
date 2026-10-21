@@ -6,10 +6,10 @@ const gallery = product.gallery || [product.img];
 
 const ACCORDIONS = [
   { title: 'Beschrijving', body: product.description || `${product.name}, ${product.detail.toLowerCase()}. ${product.label}, met de hand gemaakt in Indonesië. Je bestelt per doos van zes.` },
-  { title: 'Materiaal & onderhoud', body: product.care || `Gemaakt van ${product.mat.toLowerCase()}. Onderhoudsadvies per product vraag je op bij Lisa; ze stuurt het productblad mee.` },
+  { title: 'Materiaal & onderhoud', body: product.care || `Gemaakt van ${product.mat.toLowerCase()}. Vraag ons gerust om het productblad, daar staat het onderhoudsadvies op.` },
   { title: 'Herkomst', body: 'Met de hand gemaakt in Indonesië, in kleine oplages. Daardoor is geen stuk precies gelijk aan de foto: een lijn loopt net anders, een kleur valt iets warmer uit. Dat hoort erbij.' },
   { title: 'Levering & betaling', body: 'Je bestelt per doos van zes. Vanaf € 500 excl. btw leveren we franco in Nederland en België, daaronder kost het € 19,50. Betalen op factuur kan binnen 30 dagen, zodra je zakelijke account is goedgekeurd. Blijft er iets liggen? Onverkochte voorraad ruil je binnen 90 dagen om voor een ander motief.' },
-  { title: 'Voor in je winkel', body: 'Productbladen, foto\'s in hoge resolutie en uitlegkaartjes over het motief vraag je op bij Lisa. De kaartjes zitten ook in elke doos.' },
+  { title: 'Voor in je winkel', body: 'Productbladen, foto\'s in hoge resolutie en uitlegkaartjes over het motief sturen we je op verzoek. De kaartjes zitten ook in elke doos.' },
 ];
 
 

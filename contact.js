@@ -41,7 +41,7 @@ $k('msg-form').addEventListener('submit', (e) => {
   e.preventDefault();
   if (!e.target.reportValidity()) return;
   $k('msg-sent-title').textContent = 'Dank je wel, ' + $k('m-name').value.trim().split(' ')[0];
-  $k('msg-sent-text').textContent = `Je bericht is binnen. Lisa neemt binnen één werkdag contact met je op via ${$k('m-email').value.trim()}.`;
+  $k('msg-sent-text').textContent = `Je bericht is binnen. We nemen binnen één werkdag contact met je op via ${$k('m-email').value.trim()}.`;
   $k('msg-form-wrap').hidden = true;
   $k('msg-sent').hidden = false;
 });
