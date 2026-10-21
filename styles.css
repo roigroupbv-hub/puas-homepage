@@ -17,6 +17,11 @@
   --outside: #151210;
   --pad: 64px;
   --tile: url('img/parang-tile.webp');
+  /* Tumpal (row of batik triangles) along the top and bottom edge of the batik buttons */
+  --tumpal-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 0 L12 20 L24 0 Z' fill='%23F5841F' fill-opacity='0.42'/%3E%3Cpath d='M7 0 L12 9 L17 0 Z' fill='%231F1A16' fill-opacity='.85'/%3E%3C/svg%3E");
+  --tumpal-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 24 L12 4 L24 24 Z' fill='%23F5841F' fill-opacity='0.42'/%3E%3Cpath d='M7 24 L12 15 L17 24 Z' fill='%231F1A16' fill-opacity='.85'/%3E%3C/svg%3E");
+  --tumpal-top-hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 0 L12 20 L24 0 Z' fill='%231F1A16' fill-opacity='0.28'/%3E%3Cpath d='M7 0 L12 9 L17 0 Z' fill='%23F5841F' fill-opacity='.85'/%3E%3C/svg%3E");
+  --tumpal-bottom-hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 24 L12 4 L24 24 Z' fill='%231F1A16' fill-opacity='0.28'/%3E%3Cpath d='M7 24 L12 15 L17 24 Z' fill='%23F5841F' fill-opacity='.85'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
@@ -112,8 +117,10 @@ input::placeholder { color: var(--placeholder); }
 
 .btn-pattern {
   margin-top: 14px; width: 100%; height: 48px; border: 0;
-  background: linear-gradient(rgba(31,26,22,.55), rgba(31,26,22,.55)), var(--tile) center / cover no-repeat, var(--ink);
+  --tumpal-size: 12px;
+  background: var(--tumpal-top) left top / var(--tumpal-size) var(--tumpal-size) repeat-x, var(--tumpal-bottom) left bottom / var(--tumpal-size) var(--tumpal-size) repeat-x, var(--ink);
   color: var(--cream);
+  transition: background-color .2s, color .2s;
   font: 600 13px 'Jost', sans-serif; letter-spacing: .14em; text-transform: uppercase;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -126,7 +133,7 @@ input::placeholder { color: var(--placeholder); }
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z'/%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .btn-pattern:hover, .btn-pattern.is-added {
-  background: linear-gradient(rgba(245,132,31,.82), rgba(245,132,31,.82)), var(--tile) center / cover no-repeat, var(--orange);
+  background: var(--tumpal-top-hover) left top / var(--tumpal-size) var(--tumpal-size) repeat-x, var(--tumpal-bottom-hover) left bottom / var(--tumpal-size) var(--tumpal-size) repeat-x, var(--orange);
   color: var(--ink);
 }
 .btn-pattern.is-added::before { display: none; }
@@ -854,7 +861,7 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
 .co-upsell__name { font-size: 15px; font-weight: 500; line-height: 1.3; }
 .co-upsell__price { margin: 4px 0 8px; font-size: 15px; font-weight: 600; }
 .co-upsell__price span { font-size: 12px; font-weight: 400; color: var(--muted); }
-.btn-pattern--xs { width: auto; height: 34px; margin-top: 0; padding: 0 14px; font-size: 12px; }
+.btn-pattern--xs { --tumpal-size: 8px; width: auto; height: 34px; margin-top: 0; padding: 0 14px; font-size: 12px; }
 .btn-pattern--xs::before { display: none; }
 .co-nav { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .co-nav--end { justify-content: flex-end; }
