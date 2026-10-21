@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product · PUAS</title>
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html" class="is-active">Assortiment</a>
+      <a href="#">Zakelijk</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="#" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="#" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="#" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="pdp">
+    <nav class="pdp-crumbs" aria-label="Kruimelpad">
+      <a href="index.html">Home</a><span>/</span><a href="assortiment.html">Shop</a><span>/</span><a href="assortiment.html">Woonaccessoires</a><span>/</span><span class="pdp-crumbs__current" id="crumb-name"></span>
+    </nav>
+
+    <section class="pdp">
+      <div class="pdp__thumbs" id="thumbs"></div>
+      <div class="pdp__photo">
+        <img id="main-img" alt="">
+        <span class="product__label" id="main-label"></span>
+      </div>
+
+      <div class="pdp__info">
+        <div class="pdp__eyebrow" id="eyebrow"></div>
+        <h1 id="name"></h1>
+        <div class="pdp__subline" id="subline"></div>
+        <div class="pdp__rating" id="rating"></div>
+
+        <div class="pdp__pricebar">
+          <div class="pdp__price"><span id="unit-price"></span><span id="unit-label"></span></div>
+          <button type="button" class="btw-toggle" id="btw-toggle" aria-pressed="false">
+            <span class="btw-toggle__track"><span class="btw-toggle__knob"></span></span>
+            <span id="btw-toggle-label">Toon incl. btw</span>
+          </button>
+        </div>
+        <div class="pdp__note" id="price-note"></div>
+
+        <div class="pdp__block">
+          <div class="pdp__label"><span>Staffelprijs</span><span>Klik om aantal te kiezen</span></div>
+          <div class="tiers" id="tiers"></div>
+        </div>
+
+        <div class="pdp__block" id="color-block" hidden>
+          <div class="pdp__label"><span>Kleur</span><span id="color-name"></span></div>
+          <div class="swatches" id="colors"></div>
+        </div>
+        <div class="pdp__block pdp__block--wide" id="size-block" hidden>
+          <div class="pdp__label"><span>Maat</span><a href="#" class="pdp__sizechart">Maattabel</a></div>
+          <div class="sizes" id="sizes"></div>
+        </div>
+
+        <div class="buy" id="buy">
+          <div class="stepper">
+            <button type="button" data-qty="-1" aria-label="Minder">−</button>
+            <span class="js-qty">6</span>
+            <button type="button" data-qty="1" aria-label="Meer">+</button>
+          </div>
+          <button type="button" class="btn-pattern btn-pattern--buy js-add">In bestelling</button>
+        </div>
+        <div class="pdp__total">
+          <span><span class="js-qty">6</span> × <span class="js-unit"></span> <em id="savings"></em></span>
+          <strong>Totaal <span class="js-total"></span></strong>
+        </div>
+        <div class="pdp__secondary">
+          <button type="button" class="btn-outline">Offerte aanvragen</button>
+          <button type="button" class="btn-outline btn-outline--light">Sample bestellen · € 25</button>
+        </div>
+
+        <div class="usps">
+          <div><span class="dot"></span><span id="stock-usp"></span></div>
+          <div><span class="dot"></span>Franco levering vanaf € 500</div>
+          <div><span class="dot"></span>Betaling op factuur, 30 dagen</div>
+          <div><span class="dot"></span>Grotere oplages op aanvraag (vanaf 100)</div>
+        </div>
+
+        <div class="accordions" id="accordions"></div>
+      </div>
+    </section>
+
+    <section class="motif-block" id="motif-block" hidden>
+      <div>
+        <div class="eyebrow-line eyebrow-line--orange">Het motief</div>
+        <h2 id="motif-name"></h2>
+        <div id="motif-text"></div>
+        <a href="#" class="motif-block__link">Prijslijst en staffels <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="motif-block__visual">
+        <div class="motif-block__circle"></div>
+        <div class="motif-block__photo"><img id="motif-img" alt=""></div>
+        <div class="motif-block__facts">
+          <div><b>3 wk</b>tekenen &amp; verven</div>
+          <div><b>100%</b>katoen primissima</div>
+          <div><b>6</b>stuks per doos</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--new" id="reviews" hidden>
+      <div class="section-head"><span></span><h2>Beoordelingen</h2><span></span></div>
+      <div class="reviews">
+        <div class="reviews__summary">
+          <div class="reviews__score">4,8</div>
+          <div class="stars">★★★★★</div>
+          <div class="reviews__count">37 beoordelingen</div>
+          <div id="review-bars"></div>
+          <button type="button" class="btn-outline reviews__write">Schrijf een review</button>
+        </div>
+        <div id="review-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--related">
+      <div class="section-head"><span></span><h2>Past hierbij</h2><span></span></div>
+      <div class="products" id="related"></div>
+    </section>
+  </main>
+
+  <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
+    <div class="sticky-buy__product">
+      <div class="thumb thumb--xs"><img id="sticky-img" alt=""></div>
+      <div>
+        <div class="sticky-buy__name" id="sticky-name"></div>
+        <div class="sticky-buy__variant" id="sticky-variant"></div>
+      </div>
+    </div>
+    <div class="sticky-buy__actions">
+      <div class="mini-tiers" id="mini-tiers"></div>
+      <div class="stepper stepper--dark">
+        <button type="button" data-qty="-1" aria-label="Minder">−</button>
+        <span class="js-qty">6</span>
+        <button type="button" data-qty="1" aria-label="Meer">+</button>
+      </div>
+      <div class="sticky-buy__total">
+        <div><span class="js-qty">6</span> × <span class="js-unit"></span> · <span class="js-btw"></span></div>
+        <strong class="js-total"></strong>
+      </div>
+      <button type="button" class="btn-orange js-add">In bestelling</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="#">Verzenden &amp; retourneren</a></div>
+        <div><a href="#">Onderhoud van batik</a></div>
+        <div><a href="#">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=3"></script>
+<script src="script.js?v=3"></script>
+<script src="product.js?v=3"></script>
+</body>
+</html>

@@ -9,18 +9,6 @@ const SUBCATS = [
   { label: 'Geur', key: 'geur' },
 ];
 
-const PRODUCTS = [
-  { id: 1, img: 'img/p-kussenhoes-parang.jpg', name: 'Kussenhoes Parang', detail: 'Katoen, 50 × 50 cm', ex: 29.5, cmp: 35.5, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen', kleur: 'Sogan bruin', stock: 40, nieuw: true },
-  { id: 2, img: 'img/p-tafelloper-kawung.jpg', name: 'Tafelloper Kawung', detail: 'Katoen, 40 × 180 cm', ex: 41.5, label: 'Batik cap', sub: 'tafel', motief: 'Kawung', mat: 'Katoen', kleur: 'Sogan bruin', stock: 18 },
-  { id: 3, img: 'img/p-ata-mand.jpg', name: 'Ata-mand met deksel', detail: 'Ata-riet, ø 28 cm', ex: 52, cmp: 65, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 3 },
-  { id: 4, img: 'img/p-wierook-cendana.jpg', name: 'Wierook Cendana', detail: 'Sandelhout, 40 stokjes', ex: 7.25, label: 'Handgerold', sub: 'geur', motief: 'Effen', mat: 'Sandelhout', kleur: 'Naturel', stock: 60, nieuw: true },
-  { id: 5, img: 'img/cat-woonaccessoires.jpg', name: 'Vaas Sekar Jagad', detail: 'Keramiek, h 32 cm', ex: 78, label: 'Handbeschilderd', sub: 'keramiek', motief: 'Sekar Jagad', mat: 'Keramiek', kleur: 'Zwart', stock: 9 },
-  { id: 6, img: 'img/hero.jpg', name: 'Kussenhoes Truntum', detail: 'Katoen, 45 × 45 cm', ex: 27.5, label: 'Batik cap', sub: 'kussen', motief: 'Truntum', mat: 'Katoen', kleur: 'Indigo', stock: 22 },
-  { id: 7, img: 'img/cat-kleding.jpg', name: 'Plaid Sogan', detail: 'Katoen, 130 × 180 cm', ex: 64, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen', kleur: 'Sogan bruin', stock: 5 },
-  { id: 8, img: 'img/cat-tassen.jpg', name: 'Broodmand Ata', detail: 'Ata-riet, 32 × 22 cm', ex: 31, label: 'Handgevlochten', sub: 'mand', motief: 'Effen', mat: 'Ata-riet', kleur: 'Naturel', stock: 14 },
-  { id: 9, img: 'img/cat-sieraden.jpg', name: 'Schaal Manik', detail: 'Keramiek, ø 24 cm', ex: 36, cmp: 42, label: 'Handbeschilderd', sub: 'keramiek', motief: 'Kawung', mat: 'Keramiek', kleur: 'Zwart', stock: 11 },
-];
-
 const GROUPS = [
   { key: 'motief', title: 'Motief', field: 'motief' },
   { key: 'materiaal', title: 'Materiaal', field: 'mat' },
@@ -33,18 +21,15 @@ const SORTS = ['Aanbevolen', 'Prijs ↑', 'Nieuw'];
 const state = {
   sub: 0,
   sort: 0,
-  btw: readStore('puas-btw') === '1',
   open: { motief: true, materiaal: true, kleur: false, prijs: false },
   sel: new Set(), // "group:value"
   added: new Set(),
 };
 
 const $ = (id) => document.getElementById(id);
-const fmt = (n) => '€ ' + n.toFixed(2).replace('.', ',');
-const vat = (n) => Math.round((state.btw ? n * 1.21 : n) * 100) / 100;
+const vat = (n) => withVat(n, window.puasBtw.incl);
 const priceBand = (p) => p.ex < 20 ? 'Tot € 20' : p.ex < 40 ? '€ 20 – 40' : p.ex < 60 ? '€ 40 – 60' : 'Vanaf € 60';
 const valueOf = (p, field) => field === 'prijs' ? priceBand(p) : p[field];
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 function bySub() {
   const key = SUBCATS[state.sub].key;
@@ -101,19 +86,20 @@ function render() {
     `<button type="button" class="chip" data-opt="${esc(k)}">${esc(k.split(':')[1])}<span aria-hidden="true">×</span></button>`
   ).join('');
 
-  $('btw-toggle').classList.toggle('is-on', state.btw);
-  $('btw-toggle').setAttribute('aria-pressed', String(state.btw));
-  $('btw-label').textContent = state.btw ? 'incl. btw' : 'excl. btw';
+  const incl = window.puasBtw.incl;
+  $('btw-toggle').classList.toggle('is-on', incl);
+  $('btw-toggle').setAttribute('aria-pressed', String(incl));
+  $('btw-label').textContent = incl ? 'incl. btw' : 'excl. btw';
 
   $('sorts').innerHTML = SORTS.map((s, i) =>
     `<button type="button" class="sort${i === state.sort ? ' is-active' : ''}" data-sort="${i}">${s}</button>`
   ).join('');
 
   $('grid').innerHTML = list.map((p) => {
-    const added = state.added.has(p.id);
+    const added = state.added.has(p.slug);
     const discount = p.cmp ? '−' + Math.round((1 - p.ex / p.cmp) * 100) + '%' : '';
     return `<article class="card">
-      <a href="#" class="card__link">
+      <a href="${productUrl(p)}" class="card__link">
         <div class="card__photo">
           <img src="${p.img}" alt="${esc(p.name)}" loading="lazy">
           <span class="card__label">${esc(p.label)}</span>
@@ -129,7 +115,7 @@ function render() {
         </div>
       </a>
       <div class="card__tier">Per doos van 6 · vanaf 12 st. −7%, vanaf 24 st. −14%</div>
-      <button type="button" class="btn-pattern btn-pattern--sm${added ? ' is-added' : ''}" data-add="${p.id}">${added ? 'Toegevoegd ✓' : 'Doos van 6 bestellen'}</button>
+      <button type="button" class="btn-pattern btn-pattern--sm${added ? ' is-added' : ''}" data-add="${p.slug}">${added ? 'Toegevoegd ✓' : 'Doos van 6 bestellen'}</button>
     </article>`;
   }).join('');
 
@@ -160,8 +146,8 @@ document.addEventListener('click', (e) => {
   else if (t.dataset.clear !== undefined) clearAll();
   else if (t.dataset.add !== undefined) {
     // Update only the button, so the product photos are not rebuilt
-    const id = Number(t.dataset.add);
-    window.puasCart.add(6);
+    const id = t.dataset.add;
+    window.puasAdd(id, MOQ);
     state.added.add(id);
     t.classList.add('is-added');
     t.textContent = 'Toegevoegd ✓';
@@ -173,11 +159,8 @@ document.addEventListener('click', (e) => {
   }
 });
 
-$('btw-toggle').addEventListener('click', () => {
-  state.btw = !state.btw;
-  writeStore('puas-btw', state.btw ? '1' : '0');
-  render();
-});
+$('btw-toggle').addEventListener('click', () => window.puasBtw.set(!window.puasBtw.incl));
+document.addEventListener('puas:btw', render);
 
 $('filters-open').addEventListener('click', () => setFiltersOpen(true));
 $('filters-show').addEventListener('click', () => setFiltersOpen(false));

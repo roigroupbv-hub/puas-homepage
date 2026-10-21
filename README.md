@@ -14,8 +14,12 @@ Open daarna http://localhost:8790.
 
 - `index.html`: homepage
 - `assortiment.html` + `assortiment.js`: categoriepagina (Woonaccessoires) met filters, sorteren, btw-toggle
-- `styles.css`, `script.js`: gedeeld door alle pagina's (menu, winkelmand-teller, nieuwsbrief)
+- `product.html` + `product.js`: productpagina, één pagina voor alle producten via `product.html?p=<slug>`
+- `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
+- `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
+
+Na een wijziging aan een css/js-bestand: verhoog `?v=N` in alle html-bestanden, anders laden browsers via de cache een mix van oud en nieuw.
 - `img/`: logo, patroontegel en foto's (omgezet naar JPG)
 - `design-referentie/`: het originele ontwerp en de handoff-README (niet in git, zie `.gitignore`)
 
-Links naar Zakelijk, Contact, productpagina's enz. staan nog op `#`; die pagina's bestaan nog niet. De winkelmand is een teller in de browser, er wordt niets echt besteld.
+Links naar Zakelijk, Contact, Zoeken, Account en "Bestelling afronden" staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld.
