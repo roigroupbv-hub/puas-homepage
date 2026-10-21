@@ -21,11 +21,12 @@ Open daarna http://localhost:8790.
 - `contact.html` + `contact.js`: contactgegevens, bedrijfsgegevens (voorbeeldwaarden uit het ontwerp), berichtformulier (verstuurt nog niets) en veelgestelde vragen
 - `service.html` + `service.js`: klantenservice met tabbladen (`#verzenden`, `#onderhoud`, `#vragen`); de footerlinks openen direct het juiste tabblad
 - `zoeken.html` + `zoeken.js`: zoeken in de productlijst, zoekterm in de link (`zoeken.html?q=parang`)
+- `account.html` + `account.js`: demo-inlog (elk e-mailadres/wachtwoord; wachtwoord wordt niet bewaard) en zakelijk dashboard; een in deze browser geplaatste bestelling verschijnt bovenaan
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
 - `img/`: logo, patroontegel en foto's (omgezet naar JPG)
 - `design-referentie/`: het originele ontwerp en de handoff-README (niet in git, zie `.gitignore`)
 
-Links naar Account staan nog op `#`; die pagina's bestaan nog niet. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
+Nog op `#`: Privacy, de categorietegels Kleding/Sieraden/Beelden & Kunst/Tassen, paginanummers op Assortiment en Maattabel. De winkelmand wordt alleen in de browser bewaard; er wordt niets echt besteld of betaald.
 
 Na een wijziging aan een css/js-bestand: verhoog `?v=N` in alle html-bestanden, anders laden browsers via de cache een mix van oud en nieuw.

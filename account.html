@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account · PUAS</title>
+<meta name="description" content="Zakelijk account: bestellingen, facturen, adressen en prijslijst.">
+<link rel="icon" href="img/puas-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Marcellus&family=Philosopher:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=12">
+</head>
+<body>
+<div class="canvas">
+
+  <div class="topbar">
+    <span>Zakelijk bestellen · Vanaf € 100 een armbandje cadeau · Franco vanaf € 500</span>
+    <div class="topbar__links"><span>Accountmanager: Lisa, 020 123 45 67</span><span>Prijslijst (PDF)</span><span>NL / EN</span></div>
+  </div>
+
+  <header class="header">
+    <button class="header__menu" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="assortiment.html">Assortiment</a>
+      <a href="zakelijk.html">Zakelijk</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="index.html" class="header__logo"><img src="img/puas-logo.png" alt="PUAS"></a>
+    <div class="header__right">
+      <a href="contact.html" class="header__contact">Contact</a>
+      <div class="icons">
+        <a href="zoeken.html" title="Zoeken" aria-label="Zoeken">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </a>
+        <a href="account.html" title="Account" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a href="#" title="Winkelmand" aria-label="Winkelmand" class="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart__badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="logged-out">
+      <section class="page-hero">
+        <div class="contact__label">Zakelijk account</div>
+        <h1>Inloggen</h1>
+      </section>
+      <section class="login">
+        <div class="login__box">
+          <div class="login__title">Welkom terug</div>
+          <form class="login__form" id="login-form" novalidate>
+            <div class="field"><label for="l-email">E-mailadres</label><input id="l-email" type="email" placeholder="sanne@voorbeeld.nl" autocomplete="off" required></div>
+            <div class="field">
+              <div class="login__pwlabel"><label for="l-pw">Wachtwoord</label><a href="contact.html">Vergeten?</a></div>
+              <input id="l-pw" type="password" placeholder="••••••••" autocomplete="off" required>
+            </div>
+            <label class="terms login__remember"><input type="checkbox" checked>Ingelogd blijven</label>
+            <button type="submit" class="btn-dark">Inloggen</button>
+            <p class="login__demo">Demo: elk e-mailadres en wachtwoord opent het voorbeeldaccount. Je wachtwoord wordt niet opgeslagen of verstuurd.</p>
+          </form>
+        </div>
+        <div class="login__aside">
+          <div class="login__title">Nog geen zakelijk account?</div>
+          <div class="login__usps">
+            <div><span class="dot"></span>Staffelkorting vanaf 6 stuks</div>
+            <div><span class="dot"></span>Betalen op factuur, 30 dagen</div>
+            <div><span class="dot"></span>Franco levering vanaf € 500</div>
+            <div><span class="dot"></span>Prijslijst en voorraad per dessin</div>
+          </div>
+          <a href="zakelijk.html#aanvragen" class="btn-primary login__cta">Account aanvragen</a>
+          <div class="login__foot">Bevestiging binnen één werkdag na controle van KvK- en btw-nummer.</div>
+        </div>
+      </section>
+    </div>
+
+    <div id="logged-in" hidden>
+      <section class="page-hero">
+        <div class="contact__label">Zakelijk account · Klantnummer 10482</div>
+        <h1 id="account-company">Studio Noor Interieur</h1>
+      </section>
+      <section class="dashboard">
+        <nav class="dash-nav" id="dash-nav" aria-label="Account"></nav>
+        <div>
+          <div class="dash-pane" data-dash="overzicht">
+            <div class="dash-cards">
+              <div class="dash-card dash-card--dark"><div class="contact__label">Laatste bestelling</div><b id="last-order-number"></b><span id="last-order-status"></span></div>
+              <div class="dash-card dash-card--sand"><div class="contact__label contact__label--muted">Openstaand</div><b>€ 1.248</b><span>1 factuur · vervalt 28 okt</span></div>
+              <div class="dash-card"><div class="contact__label contact__label--muted">Staffelprijzen</div><b>Tot −20%</b><span><a href="zakelijk.html" class="text-link text-link--small">Prijslijst bekijken</a></span></div>
+            </div>
+          </div>
+          <div class="dash-pane" data-dash="overzicht bestellingen">
+            <div class="dash-title">Bestellingen</div>
+            <div class="dash-table" id="orders-table"></div>
+          </div>
+          <div class="dash-pane" data-dash="facturen" hidden>
+            <div class="dash-title">Facturen</div>
+            <div class="dash-table" id="invoices-table"></div>
+          </div>
+          <div class="dash-pane" data-dash="adressen" hidden>
+            <div class="dash-title">Adressen</div>
+            <div class="addresses">
+              <div class="address address--main"><div class="contact__label">Afleveradres</div><b>Studio Noor Interieur</b><br>t.a.v. Sanne de Vries<br>Prinsengracht 112<br>1015 EA Amsterdam</div>
+              <div class="address"><div class="contact__label contact__label--muted">Factuuradres</div><b>Studio Noor Interieur B.V.</b><br>Postbus 2201<br>1000 CE Amsterdam</div>
+              <button type="button" class="address address--add">+ Adres toevoegen</button>
+            </div>
+          </div>
+          <div class="dash-pane" data-dash="gegevens" hidden>
+            <div class="dash-title">Bedrijfsgegevens</div>
+            <form class="fields dash-form" id="company-form">
+              <div class="field field--wide"><label for="c-name">Bedrijfsnaam</label><input id="c-name" name="bedrijf" value="Studio Noor Interieur B.V." required></div>
+              <div class="field"><label for="c-kvk">KvK-nummer</label><input id="c-kvk" name="kvk" value="34567890"></div>
+              <div class="field"><label for="c-vat">Btw-nummer</label><input id="c-vat" name="btw" value="NL861234567B01"></div>
+              <div class="field"><label for="c-contact">Contactpersoon</label><input id="c-contact" name="contact" value="Sanne de Vries"></div>
+              <div class="field"><label for="c-phone">Telefoon</label><input id="c-phone" name="telefoon" value="+31 20 555 01 23"></div>
+              <div class="field field--wide"><label for="c-email">E-mailadres</label><input id="c-email" name="email" type="email" value="inkoop@studionoor.nl"></div>
+              <div class="field--wide dash-form__actions"><button type="submit" class="btn-dark" id="company-save">Opslaan</button><span id="company-note" role="status"></span></div>
+            </form>
+          </div>
+          <div class="dash-pane" data-dash="prijslijst" hidden>
+            <div class="pricelist-card">
+              <div><div class="dash-title dash-title--flush">Prijslijst &amp; voorwaarden</div><p>Actuele inkoopprijzen per dessin, staffels vanaf 6 / 12 / 24 / 48 stuks, franco vanaf € 500, betaling op factuur binnen 30 dagen.</p></div>
+              <a href="zakelijk.html" class="btn-primary">Prijslijst bekijken</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__news">
+        <img src="img/puas-logo.png" alt="PUAS">
+        <p>Nieuwe collecties en prijslijsten. Hooguit één keer per maand in je inbox.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="E-mailadres" aria-label="E-mailadres" required>
+          <button type="submit">Inschrijven</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Contact</div>
+        <div>hallo@puas.nl</div>
+        <div>+31 20 123 45 67</div>
+        <div>Ma – vr, 9.00 – 17.00</div>
+        <div>Showroom op afspraak</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Service</div>
+        <div><a href="service.html#verzenden">Verzenden &amp; retourneren</a></div>
+        <div><a href="service.html#onderhoud">Onderhoud van batik</a></div>
+        <div><a href="service.html#vragen">Veelgestelde vragen</a></div>
+        <div><a href="#">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__fair"><span class="dot"></span>Eerlijke handel via WFTO-partners</div>
+      <div class="footer__payoff"><span>Wonen met een verhaal</span><i>|</i><span>Echt</span><i>|</i><span>Uniek</span><i>|</i><span>PUAS</span></div>
+      <div>© 2026 PUAS</div>
+    </div>
+  </footer>
+
+</div>
+<script src="data.js?v=12"></script>
+<script src="script.js?v=12"></script>
+<script src="account.js?v=12"></script>
+</body>
+</html>
