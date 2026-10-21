@@ -23,6 +23,7 @@ Open daarna http://localhost:8790.
 - `zoeken.html` + `zoeken.js`: zoeken in de productlijst, zoekterm in de link (`zoeken.html?q=parang`)
 - `account.html` + `account.js`: demo-inlog (elk e-mailadres/wachtwoord; wachtwoord wordt niet bewaard) en zakelijk dashboard; een in deze browser geplaatste bestelling verschijnt bovenaan
 - `bedankkaart.html`: printbare A6-bedankkaart (voor- en achterkant, zonder witrand); `bedankkaart-A6.pdf` is dezelfde kaart als PDF voor de drukker
+- `gate.js`: eenvoudig wachtwoordscherm voor de hele site (alleen in de browser, geen echte beveiliging; het wachtwoord staat er alleen als SHA-256-vingerafdruk in). Alle pagina's hebben `noindex`.
 - `data.js`: productlijst en prijsregels (staffels, btw), gedeeld door alle pagina's
 - `styles.css`, `script.js`: gedeeld door alle pagina's (menu, btw-voorkeur, winkelmand-lade, meldingen, nieuwsbrief)
 - `img/`: logo, patroontegel en foto's als WebP; `-sm`-versies (600 px) voor overzichten, winkelmand en kaarten; `foto-volgt.svg` voor producten zonder eigen foto
