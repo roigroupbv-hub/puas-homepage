@@ -952,6 +952,7 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
 /* Responsive (not in the design; follows the handoff's recommendations) */
 @media (max-width: 1200px) {
   .checkout { grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; }
+  .step { margin-right: 20px; font-size: 13px; letter-spacing: .04em; }
   .co-upsells__grid { grid-template-columns: 1fr; }
   .topbar { justify-content: center; }
   .topbar__links, .header__contact { display: none; }
