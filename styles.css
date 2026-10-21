@@ -774,6 +774,9 @@ input::placeholder { color: var(--placeholder); }
 
 /* Responsive (not in the design; follows the handoff's recommendations) */
 @media (max-width: 1200px) {
+  .topbar { justify-content: center; }
+  .topbar__links, .header__contact { display: none; }
+  .nav, .header__right { font-size: 14px; }
   .pdp { grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1fr); }
   .pdp__thumb { width: 72px; height: 90px; }
   .pdp__info { padding-left: 0; }
