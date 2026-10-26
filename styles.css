@@ -159,6 +159,10 @@ input::placeholder { color: var(--placeholder); }
   text-wrap: pretty;
 }
 .hero p { margin: 0 0 36px; max-width: 480px; font-size: 19px; line-height: 1.5; color: var(--muted-dark); text-wrap: pretty; }
+/* Homepage hero with people: photo sits on the right so the faces stay clear of the text */
+.hero--people .hero__photo img { position: absolute; top: 0; right: 0; width: 68%; height: 100%; object-position: center 30%; }
+.hero--people .hero__shade { background: linear-gradient(90deg, rgba(31,26,22,1) 0%, rgba(31,26,22,1) 30%, rgba(31,26,22,.6) 38%, rgba(31,26,22,0) 50%); }
+
 
 /* Section heads */
 .section { padding: 72px var(--pad) 0; }
@@ -1437,6 +1441,10 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
   .hero__shade { background: linear-gradient(90deg, rgba(31,26,22,.8) 0%, rgba(31,26,22,.55) 60%, rgba(31,26,22,.25) 100%); }
   .hero__text { left: var(--pad); right: var(--pad); }
   .hero h1 { font-size: 44px; }
+  .hero--people { height: 620px; }
+  .hero--people .hero__photo img { width: 100%; object-position: 62% 25%; }
+  .hero--people .hero__shade { background: linear-gradient(0deg, rgba(31,26,22,.92) 0%, rgba(31,26,22,.75) 40%, rgba(31,26,22,0) 70%); }
+  .hero--people .hero__text { top: auto; bottom: 40px; transform: none; }
   .hero p { font-size: 17px; }
 
   .section-head { gap: 16px; }
