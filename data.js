@@ -1,18 +1,21 @@
 // Shared product data and price helpers (demo data from the design).
 
+// 1-5 pieces are sold at a single-piece price; from a box of 6 the box price applies, then volume tiers
 const TIER_STEPS = [
-  { min: 6, max: 11, range: '6 – 11' },
-  { min: 12, max: 23, range: '12 – 23' },
-  { min: 24, max: 47, range: '24 – 47' },
-  { min: 48, max: Infinity, range: '48+' },
+  { min: 1, max: 5, range: '1 – 5', name: 'Losse prijs', short: 'los' },
+  { min: 6, max: 11, range: '6 – 11', name: 'Doosprijs', short: 'doosprijs' },
+  { min: 12, max: 23, range: '12 – 23', name: 'Staffel −7%', short: '−7%' },
+  { min: 24, max: 47, range: '24 – 47', name: 'Staffel −14%', short: '−14%' },
+  { min: 48, max: Infinity, range: '48+', name: 'Staffel −20%', short: '−20%' },
 ];
-const TIER_FACTORS = [1, 0.93, 0.86, 0.8];
-const MOQ = 6;
+const TIER_FACTORS = [1.15, 1, 0.93, 0.86, 0.8];
+const MOQ = 1; // smallest order quantity
+const BOX = 6; // pieces per box
 
 const PRODUCTS = [
   {
     slug: 'kussenhoes-parang', img: 'img/p-kussenhoes-parang.webp', name: 'Kussenhoes Parang', detail: 'Katoen, 50 × 50 cm',
-    ex: 29.5, cmp: 35.5, tiersEx: [29.5, 27.5, 25.5, 23.5], rrp: 59, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen',
+    ex: 29.5, cmp: 35.5, tiersEx: [34, 29.5, 27.5, 25.5, 23.5], rrp: 59, label: 'Batik tulis', sub: 'kussen', motief: 'Parang', mat: 'Katoen',
     kleur: 'Sogan bruin', stock: 40, nieuw: true, eyebrow: 'Woonaccessoires · Textiel',
     subline: 'Handgetekende batik tulis · Katoen · 50 × 50 cm',
     colors: [{ name: 'Sogan bruin', hex: '#8B4A1F' }, { name: 'Indigo', hex: '#2E3A59' }, { name: 'Zand', hex: '#D9C7A7' }],
@@ -40,13 +43,13 @@ const MOTIFS = {
   Kawung: {
     text: [
       'Vier ovalen rond een punt, steeds herhaald. Rustig en regelmatig, en daardoor makkelijk te combineren met effen stoffen of hout.',
-      'Per zes stuks verpakt, met kaartjes over het motief voor in de winkel.',
+      'Los te bestellen of per doos van zes, met kaartjes over het motief voor in de winkel.',
     ],
   },
   Truntum: {
     text: [
       'Kleine sterren op donkere grond. Het fijnste patroon van de drie, en het mooist als accent naast Parang of Kawung.',
-      'Per zes stuks verpakt, met kaartjes over het motief voor in de winkel.',
+      'Los te bestellen of per doos van zes, met kaartjes over het motief voor in de winkel.',
     ],
   },
 };
@@ -58,7 +61,8 @@ const thumbOf = (p) => p.img.replace(/\.webp$/, '-sm.webp');
 
 // Excl. VAT unit price per tier for a product
 function tierPrices(p) {
-  return p.tiersEx || TIER_FACTORS.map((f) => Math.round(p.ex * f * 100) / 100);
+  // Single-piece price is rounded up to the nearest 50 cents
+  return p.tiersEx || TIER_FACTORS.map((f) => (f > 1 ? Math.ceil(p.ex * f * 2) / 2 : Math.round(p.ex * f * 100) / 100));
 }
 function tierIndex(qty) {
   return Math.max(0, TIER_STEPS.findIndex((t) => qty >= t.min && qty <= t.max));

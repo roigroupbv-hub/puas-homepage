@@ -187,7 +187,7 @@ function renderCart() {
       <div class="line__main">
         <a href="${productUrl(p)}" class="line__name">${esc(p.name)}</a>
         <div class="line__meta">${esc(l.variant || p.detail)}</div>
-        <div class="line__meta">${ti === 0 ? 'Basisstaffel · vanaf 12 st. −7%' : 'Staffel ' + (ti + 1) + ' actief'}</div>
+        <div class="line__meta">${TIER_STEPS[ti].name}${ti < 2 ? ' · ' + (ti === 0 ? 'vanaf 6 st. doosprijs' : 'vanaf 12 st. −7%') : ''}</div>
         <div class="line__controls">
           <div class="stepper stepper--sm"><button type="button" data-line-dec="${i}" aria-label="Minder">−</button><span>${l.qty}</span><button type="button" data-line-inc="${i}" aria-label="Meer">+</button></div>
           <button type="button" class="link-btn link-btn--muted" data-line-remove="${i}">Verwijder</button>
@@ -211,8 +211,8 @@ function renderCart() {
     return `<div class="upsell">
       <div class="thumb thumb--sm"><img src="${thumbOf(p)}" alt=""></div>
       <div class="upsell__text"><div class="upsell__name">${esc(p.name)}</div><div class="upsell__reason">${esc(u.reason)}</div>
-      <div class="upsell__price"><b>${fmt(withVat(p.ex, incl))}</b> / st. · doos van ${MOQ}</div></div>
-      <button type="button" class="btn-small" data-upsell="${p.slug}">+ ${MOQ}</button>
+      <div class="upsell__price"><b>${fmt(withVat(p.ex, incl))}</b> / st. · per doos van ${BOX}</div></div>
+      <button type="button" class="btn-small" data-upsell="${p.slug}">+ ${BOX}</button>
     </div>`;
   }).join('') : '';
 
@@ -272,7 +272,7 @@ document.addEventListener('click', (e) => {
   else if (t.matches('[data-regret-close]')) hideToast('regret');
   else if (t.dataset.lineInc !== undefined) { const i = Number(t.dataset.lineInc); cart.setQty(i, cart.lines[i].qty + 1); }
   else if (t.dataset.lineDec !== undefined) { const i = Number(t.dataset.lineDec); cart.setQty(i, cart.lines[i].qty - 1); }
-  else if (t.dataset.upsell !== undefined) cart.add(t.dataset.upsell, MOQ);
+  else if (t.dataset.upsell !== undefined) cart.add(t.dataset.upsell, BOX);
   else if (t.dataset.lineRemove !== undefined) {
     const i = Number(t.dataset.lineRemove);
     const line = cart.lines[i];
@@ -322,7 +322,7 @@ function renderStaticPrices() {
     el.textContent = p.cmp ? fmt(withVat(p.cmp, incl)) : '';
   });
   document.querySelectorAll('.js-btw-note').forEach((el) => {
-    el.textContent = `Inkoopprijzen per stuk, ${incl ? 'incl.' : 'excl.'} btw · per doos van 6`;
+    el.textContent = `Inkoopprijs per stuk bij een doos van 6, ${incl ? 'incl.' : 'excl.'} btw · los kan ook`;
   });
 }
 document.addEventListener('puas:btw', renderStaticPrices);

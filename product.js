@@ -8,12 +8,12 @@ const ACCORDIONS = [
   { title: 'Beschrijving', body: product.description || `${product.name}, ${product.detail.toLowerCase()}. ${product.label}, met de hand gemaakt in Indonesië. Je bestelt per doos van zes.` },
   { title: 'Materiaal & onderhoud', body: product.care || `Gemaakt van ${product.mat.toLowerCase()}. Vraag ons gerust om het productblad, daar staat het onderhoudsadvies op.` },
   { title: 'Herkomst', body: 'Met de hand gemaakt in Indonesië, in kleine oplages. Daardoor is geen stuk precies gelijk aan de foto: een lijn loopt net anders, een kleur valt iets warmer uit. Dat hoort erbij.' },
-  { title: 'Levering & betaling', body: 'Je bestelt per doos van zes. Vanaf € 500 excl. btw leveren we franco in Nederland en België, daaronder kost het € 19,50. Betalen op factuur kan binnen 30 dagen, zodra je zakelijke account is goedgekeurd. Blijft er iets liggen? Onverkochte voorraad ruil je binnen 90 dagen om voor een ander motief.' },
+  { title: 'Levering & betaling', body: 'Je bestelt al vanaf één stuk; per doos van zes betaal je de voordeligere doosprijs. Vanaf € 500 excl. btw leveren we franco in Nederland en België, daaronder kost het € 19,50. Betalen op factuur kan binnen 30 dagen, zodra je zakelijke account is goedgekeurd. Blijft er iets liggen? Onverkochte voorraad ruil je binnen 90 dagen om voor een ander motief.' },
   { title: 'Voor in je winkel', body: 'Productbladen, foto\'s in hoge resolutie en uitlegkaartjes over het motief sturen we je op verzoek. De kaartjes zitten ook in elke doos.' },
 ];
 
 
-const pdp = { img: 0, color: 0, size: product.defaultSize || 0, qty: MOQ, open: 0 };
+const pdp = { img: 0, color: 0, size: product.defaultSize || 0, qty: BOX, open: 0 };
 const $p = (id) => document.getElementById(id);
 const all = (sel) => document.querySelectorAll(sel);
 
@@ -31,7 +31,7 @@ $p('main-label').textContent = product.label;
 $p('eyebrow').textContent = product.eyebrow;
 $p('name').textContent = product.name;
 $p('subline').textContent = product.subline || `${product.label} · ${product.detail}`;
-$p('stock-usp').textContent = `Voorraad: ${product.stock * MOQ} stuks · levertijd 2–3 werkdagen`;
+$p('stock-usp').textContent = `Voorraad: ${product.stock * BOX} stuks · levertijd 2–3 werkdagen`;
 $p('sticky-img').src = thumbOf(product);
 $p('sticky-name').textContent = product.name;
 
@@ -78,10 +78,10 @@ function render() {
   $p('btw-toggle').setAttribute('aria-pressed', String(incl));
   $p('btw-toggle-label').textContent = incl ? 'Toon excl. btw' : 'Toon incl. btw';
   const margin = product.rrp ? Math.round((1 - prices[ti] / (product.rrp / 1.21)) * 100) : null;
-  $p('price-note').textContent = (product.rrp ? `Adviesverkoopprijs ${fmt(product.rrp).replace(',00', '')} · Marge ${margin}% · ` : '') + 'Minimale afname 6 stuks';
+  $p('price-note').textContent = (product.rrp ? `Adviesverkoopprijs ${fmt(product.rrp).replace(',00', '')} · Marge ${margin}% · ` : '') + 'Los vanaf 1 stuk, voordeliger per doos van 6';
 
   $p('tiers').innerHTML = TIER_STEPS.map((t, i) => `<button type="button" class="tier${i === ti ? ' is-active' : ''}" data-tier="${i}">
-    <span>${t.range} st.</span><b>${fmt(withVat(prices[i], incl))}</b><em>${i === 0 ? 'basisprijs' : '−' + Math.round((1 - prices[i] / prices[0]) * 100) + '%'}</em></button>`).join('');
+    <span>${t.range} st.</span><b>${fmt(withVat(prices[i], incl))}</b><em>${t.short}</em></button>`).join('');
   $p('mini-tiers').innerHTML = TIER_STEPS.map((t, i) =>
     `<button type="button" class="mini-tier${i === ti ? ' is-active' : ''}" data-tier="${i}">${t.range} st.</button>`).join('');
 
@@ -101,7 +101,7 @@ function render() {
   all('.js-unit').forEach((el) => { el.textContent = fmt(unit); });
   all('.js-total').forEach((el) => { el.textContent = fmt(total); });
   all('.js-btw').forEach((el) => { el.textContent = btwLabel; });
-  $p('savings').textContent = saved > 0 ? '· je bespaart ' + fmt(saved) + ' t.o.v. de basisstaffel' : '';
+  $p('savings').textContent = saved > 0 ? '· je bespaart ' + fmt(saved) + ' t.o.v. losse stuks' : '';
   $p('sticky-variant').textContent = [variant(), product.label].filter(Boolean).join(' · ');
 
   $p('accordions').innerHTML = ACCORDIONS.map((a, i) => `<div class="acc">

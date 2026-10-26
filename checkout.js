@@ -58,7 +58,7 @@ function render() {
       <div>
         <div class="co-line__label">${esc(p.label)}</div>
         <a href="${productUrl(p)}" class="co-line__name">${esc(p.name)}</a>
-        <div class="co-line__detail">${esc(l.variant || p.detail)} · ${ti === 0 ? 'basisstaffel' : 'staffel ' + (ti + 1)}</div>
+        <div class="co-line__detail">${esc(l.variant || p.detail)} · ${TIER_STEPS[ti].name.toLowerCase()}</div>
         <button type="button" class="link-btn link-btn--muted co-line__remove" data-line-remove="${i}">Verwijderen</button>
       </div>
       <div class="stepper stepper--sm stepper--co"><button type="button" data-line-dec="${i}" aria-label="Minder">−</button><span>${l.qty}</span><button type="button" data-line-inc="${i}" aria-label="Meer">+</button></div>
@@ -74,7 +74,7 @@ function render() {
     const p = findProduct(s);
     return `<div class="co-upsell">
       <a href="${productUrl(p)}" class="co-upsell__img"><img src="${thumbOf(p)}" alt=""></a>
-      <div><div class="co-upsell__name">${esc(p.name)}</div><div class="co-upsell__price">${fmt(p.ex)} <span>p/st · doos van ${MOQ}</span></div>
+      <div><div class="co-upsell__name">${esc(p.name)}</div><div class="co-upsell__price">${fmt(p.ex)} <span>p/st · per doos van ${BOX}</span></div>
       <button type="button" class="btn-pattern btn-pattern--xs" data-co-add="${p.slug}">Toevoegen</button></div>
     </div>`;
   }).join('');
@@ -143,7 +143,7 @@ document.addEventListener('click', (e) => {
   else if (t.dataset.prev !== undefined) goTo(co.step - 1);
   else if (t.dataset.ship !== undefined) { co.ship = Number(t.dataset.ship); render(); }
   else if (t.dataset.pay !== undefined) { co.pay = Number(t.dataset.pay); render(); }
-  else if (t.dataset.coAdd) window.puasCart.add(t.dataset.coAdd, MOQ);
+  else if (t.dataset.coAdd) window.puasCart.add(t.dataset.coAdd, BOX);
   else if (t.id === 'place-order') placeOrder();
 });
 $c('details-form').addEventListener('submit', (e) => e.preventDefault());

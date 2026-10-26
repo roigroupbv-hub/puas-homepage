@@ -4,8 +4,8 @@ const SERVICE_FAQ = [
   { q: 'Wat is het verschil tussen batik tulis en batik cap?', a: 'Tulis is met de hand getekend met een canting; één doek kost weken. Cap wordt gestempeld met een koperen stempel: sneller, betaalbaarder, nog steeds handwerk.' },
   { q: 'Waarom zijn geen twee producten precies hetzelfde?', a: 'Elk doek wordt met de hand gemaakt en in kleine baden geverfd. De foto geeft een goede indruk, geen exacte kopie.' },
   { q: 'Kan ik een product eerst zien?', a: 'Ja, in de showroom in Amsterdam, op afspraak. Zakelijke klanten kunnen samples laten opsturen.' },
-  { q: 'Kan ik als particulier bestellen?', a: 'Nee, wij leveren alleen aan winkels, horeca en interieurontwerpers: per doos van 6, met staffelprijzen, franco vanaf € 500 en betalen op factuur. Vraag een zakelijk account aan.' },
-  { q: 'Wat zit er in het pakket?', a: 'Je artikelen, stevig verpakt per zes, met uitlegkaartjes over het motief. Vanaf € 100 excl. btw doen we er een armbandje Manik bij.' },
+  { q: 'Kan ik als particulier bestellen?', a: 'Nee, wij leveren alleen aan winkels, horeca en interieurontwerpers: los of per doos, met staffelprijzen, franco vanaf € 500 en betalen op factuur. Vraag een zakelijk account aan.' },
+  { q: 'Wat zit er in het pakket?', a: 'Je artikelen, stevig verpakt, met uitlegkaartjes over het motief. Vanaf € 100 excl. btw doen we er een armbandje Manik bij.' },
 ];
 const TABS = ['verzenden', 'onderhoud', 'vragen'];
 let faqOpen = 0;

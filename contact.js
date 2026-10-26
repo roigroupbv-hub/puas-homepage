@@ -7,7 +7,7 @@ const TOPICS = [
   { label: 'Anders', ph: 'Waar kunnen we je mee helpen?' },
 ];
 const FAQS = [
-  { q: 'Wat is de minimale afname voor zakelijke klanten?', a: 'Zes stuks per artikel, dat is één doos. Vanaf € 500 excl. btw leveren we franco in Nederland en België. Wil je veel meer, of een eigen kleur? Dan maken we een offerte.' },
+  { q: 'Moet ik een minimum aantal afnemen?', a: 'Je kunt al één stuk bestellen. Per doos van zes betaal je de voordeligere doosprijs. Vanaf € 500 excl. btw leveren we franco in Nederland en België. Wil je veel meer, of een eigen kleur? Dan maken we een offerte.' },
   { q: 'Kan ik op factuur betalen?', a: 'Ja. Zodra je zakelijke account is goedgekeurd, betaal je binnen 30 dagen op factuur.' },
   { q: 'Hoe snel wordt er geleverd?', a: 'Wat op voorraad is, gaat binnen 2 à 3 werkdagen de deur uit. Maatwerk duurt een stuk langer; de precieze levertijd spreken we per opdracht af.' },
   { q: 'Kan ik niet-verkochte voorraad omruilen?', a: 'Ja, binnen 90 dagen ruil je onbeschadigde artikelen om voor een ander motief of een andere maat. Handig als iets in jouw winkel minder loopt dan je dacht.' },

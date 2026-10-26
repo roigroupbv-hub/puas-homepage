@@ -114,7 +114,7 @@ function render() {
           </div>
         </div>
       </a>
-      <div class="card__tier">Per doos van 6 · vanaf 12 st. −7%, vanaf 24 st. −14%</div>
+      <div class="card__tier">Doosprijs (6 st.) · los ${fmt(vat(tierPrices(p)[0]))} · vanaf 12 st. −7%</div>
       <button type="button" class="btn-pattern btn-pattern--sm${added ? ' is-added' : ''}" data-add="${p.slug}">${added ? 'Toegevoegd ✓' : 'Doos van 6 bestellen'}</button>
     </article>`;
   }).join('');
@@ -147,7 +147,7 @@ document.addEventListener('click', (e) => {
   else if (t.dataset.add !== undefined) {
     // Update only the button, so the product photos are not rebuilt
     const id = t.dataset.add;
-    window.puasAdd(id, MOQ);
+    window.puasAdd(id, BOX);
     state.added.add(id);
     t.classList.add('is-added');
     t.textContent = 'Toegevoegd ✓';
