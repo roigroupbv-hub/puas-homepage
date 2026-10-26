@@ -292,7 +292,7 @@ $id('confirm-remove').addEventListener('click', () => {
   lastRemoved = { line, index: pendingRemove };
   setConfirmOpen(false);
   hideToast('toast');
-  $id('regret-title').textContent = `${findProduct(line.slug).name} is uit je bestelling`;
+  $id('regret-title').textContent = `Jammer, ${findProduct(line.slug).name} is verwijderd`;
   showToast('regret', 6000);
 });
 $id('regret-undo').addEventListener('click', () => {
