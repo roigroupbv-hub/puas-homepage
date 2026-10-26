@@ -160,8 +160,11 @@ input::placeholder { color: var(--placeholder); }
 }
 .hero p { margin: 0 0 36px; max-width: 480px; font-size: 19px; line-height: 1.5; color: var(--muted-dark); text-wrap: pretty; }
 /* Homepage hero with people: photo sits on the right so the faces stay clear of the text */
-.hero--people .hero__photo img { position: absolute; top: 0; right: 0; width: 68%; height: 100%; object-position: center 30%; }
-.hero--people .hero__shade { background: linear-gradient(90deg, rgba(31,26,22,1) 0%, rgba(31,26,22,1) 30%, rgba(31,26,22,.6) 38%, rgba(31,26,22,0) 50%); }
+.hero--people .hero__photo img { object-position: center 22%; }
+.hero--people .hero__shade { background: linear-gradient(0deg, rgba(31,26,22,.9) 0%, rgba(31,26,22,.7) 30%, rgba(31,26,22,0) 58%), linear-gradient(90deg, rgba(31,26,22,.45) 0%, rgba(31,26,22,0) 45%); }
+.hero--people .hero__text { top: auto; bottom: 64px; transform: none; max-width: 760px; }
+.hero--people h1 { margin-bottom: 14px; }
+.hero--people p { margin-bottom: 28px; max-width: 560px; }
 
 
 /* Section heads */
@@ -1442,9 +1445,9 @@ button.btn-primary { border: 0; font-family: 'Jost', sans-serif; cursor: pointer
   .hero__text { left: var(--pad); right: var(--pad); }
   .hero h1 { font-size: 44px; }
   .hero--people { height: 620px; }
-  .hero--people .hero__photo img { width: 100%; object-position: 62% 25%; }
+  .hero--people .hero__photo img { object-position: 62% 25%; }
   .hero--people .hero__shade { background: linear-gradient(0deg, rgba(31,26,22,.92) 0%, rgba(31,26,22,.75) 40%, rgba(31,26,22,0) 70%); }
-  .hero--people .hero__text { top: auto; bottom: 40px; transform: none; }
+  .hero--people .hero__text { bottom: 40px; }
   .hero p { font-size: 17px; }
 
   .section-head { gap: 16px; }
